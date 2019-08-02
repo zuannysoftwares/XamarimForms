@@ -10,7 +10,7 @@
                     <Image Source="logo.png" HorizontalOptions="Center" VerticalOptions="Center" />
                 </StackLayout>
 
-                <StackLayout Spacing="20">
+                <StackLayout Spacing="50">
                     <Button Text="Miguel de Icaza" FontSize="24" TextColor="White" BackgroundColor="Transparent" Clicked="GoPaginaPerfil1"/>
                     <Button Text="Joseph Hill" FontSize="24" TextColor="White" BackgroundColor="Transparent"/>
                     <Button Text="Nat Friedman" FontSize="24" TextColor="White" BackgroundColor="Transparent"/>

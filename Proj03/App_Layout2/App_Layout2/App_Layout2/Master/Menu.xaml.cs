@@ -19,12 +19,14 @@ namespace App_Layout2.Master
 
         private void GoPaginaPerfil1(object sender, EventArgs args)
         {
-            Detail = new Pages.Perfil1();
+            Detail = new NavigationPage(new Pages.Perfil1());
+            IsPresented = false;
         }
 
         private void GoPaginaSobre(object sender, EventArgs args)
         {
-            Detail = new Pages.Sobre();
+            Detail = new NavigationPage(new Pages.Sobre());
+            IsPresented = false;
         }
     }
 }
