@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ControleXF.Controles.EntryEditorPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry
+                x:Name="txtIdade"
+                Text=""
+                TextColor="Red"
+                Placeholder="Texto de PLACEHOLDER"
+                PlaceholderColor="Aqua"
+                IsPassword="False"
+                
+                Keyboard="Numeric"
+                
+                BackgroundColor="Gray"
+                
+                
+                />
+
+            <Label x:Name="lblDuplicado" />
+
+
+            <Editor 
+                x:Name="txtComentario"
+                HeightRequest="200"/>
+            
+            <Label x:Name="lblQtdCaracteres" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

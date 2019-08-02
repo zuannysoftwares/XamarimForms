@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mod="clr-namespace:ControleXF.Modelo"
+             x:Class="ControleXF.Controles.ListViewPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView>
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type mod:Pessoa}">
+                        <mod:Pessoa nome="Jonata Rafael" idede="31" />
+                        <mod:Pessoa nome="Allan Rodrigo" idede="29" />
+                        <mod:Pessoa nome="Silvia Helena" idede="47" />
+                        <mod:Pessoa nome="Doracy Terezinha" idede="78" />
+                        <mod:Pessoa nome="Sarah Gouveia" idede="35" />
+                        <mod:Pessoa nome="Matheus Gouveia" idede="16" />
+                    </x:Array>
+                </ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding nome}" />
+                                <Label Text=" - " />
+                                <Label Text="{Binding idede}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
