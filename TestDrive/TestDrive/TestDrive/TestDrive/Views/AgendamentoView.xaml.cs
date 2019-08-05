@@ -3,53 +3,61 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TestDrive.Models;
+using TestDrive.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace TestDrive.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AgendamentoView : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AgendamentoView : ContentPage
+    {
+        public AgendamentoViewModel viewModel { get; set; }
 
-        public Veiculo Carro { get; set; }
+        public Agendamento agendamento { get; set; }
 
-        public string Nome { get; set; }
-        public string Telefone { get; set; }
-        public string Email { get; set; }
-        DateTime dataAg = DateTime.Today;
-        public DateTime DataAgenda {
-            get
-            {
-                return dataAg;
-            }
-            set
-            {
-                dataAg = value;
-            }
-        }
-
-        
-        public TimeSpan HoraAgenda { get; set; }
-        
-        public AgendamentoView (Veiculo car)
-		{
-			InitializeComponent ();
-            this.Carro = car;
-            this.BindingContext = this;
-		}
-
-        private void Agendar(object sender, EventArgs args)
+        public AgendamentoView(Veiculo car)
         {
-            DisplayAlert("Agendamento de Test Drive", string.Format("" +
-@"Cliente: {0}
-Telefone: {1}
-E-mail: {2}
-----------------------------------
-Veículo: {3}
-Agendamento: {4}
-Hora: {5}", Nome, Telefone, Email, Carro.Nome, DataAgenda.ToString("dd/MM/yyyy"), HoraAgenda), "OK");
+            InitializeComponent();
+            this.viewModel = new AgendamentoViewModel(car);
+            this.BindingContext = this.viewModel;
         }
-	}
+
+        protected override void OnAppearing()//Ao aparecer
+        {
+            base.OnAppearing();
+
+            MessagingCenter.Subscribe<Agendamento>(this, "Agendamento",
+               async (msg) =>
+                {
+                    var confirma = await DisplayAlert("Salvar agendamento",
+                        "Tem certeza de que quer enviar o agendamento?",
+                        "SIM", "NÃO");
+
+                    if (confirma)
+                    {
+                        this.viewModel.SalvaAgendamento();
+                    }
+                });
+
+            MessagingCenter.Subscribe<Agendamento>(this, "SucessoAgendamento", (msg) =>
+                DisplayAlert("Agendamento", "Agendamento salvo com sucesso!", "OK")
+            );
+
+            MessagingCenter.Subscribe<ArgumentException>(this, "FalhaAgendamento", (msg) =>
+                DisplayAlert("Agendamento", "Falha ao agendar o TestDrive. Verifique os dados e tente novamente mais tarde", "OK")
+            );
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<Agendamento>(this, "Agendamento");
+
+            MessagingCenter.Unsubscribe<Agendamento>(this, "SucessoAgendamento");
+
+            MessagingCenter.Unsubscribe<ArgumentException>(this, "FalhaAgendamento");
+        }
+    }
 }

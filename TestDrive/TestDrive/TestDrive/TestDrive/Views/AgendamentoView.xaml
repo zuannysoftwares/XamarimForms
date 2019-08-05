@@ -28,6 +28,6 @@
                 </TableSection>
             </TableRoot>
         </TableView>
-        <Button Text="Agendar Text Drive" Clicked="Agendar"></Button>
+        <Button Text="Agendar Text Drive" Command="{Binding Agendar}"></Button>
     </StackLayout>
 </ContentPage>
