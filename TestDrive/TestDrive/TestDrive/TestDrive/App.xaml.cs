@@ -1,4 +1,5 @@
 ﻿using System;
+using TestDrive.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,12 +12,15 @@ namespace TestDrive
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TestDrive.Views.ListagemPrincipal());
+            MainPage = new TestDrive.Views.Login();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            MessagingCenter.Subscribe<Usuario>(this, "SucessoLogin", (usuario) =>
+            {
+               MainPage = new NavigationPage(new TestDrive.Views.ListagemPrincipal());
+            });
         }
 
         protected override void OnSleep()
