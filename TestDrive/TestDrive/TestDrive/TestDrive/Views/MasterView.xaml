@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:converters="clr-namespace:TestDrive.Converters"
+             x:Class="TestDrive.Views.MasterView"
+             Title="Perfil">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <converters:NegativoConverter x:Key="negativo"></converters:NegativoConverter>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+    <TabbedPage.Children>
+        <ContentPage Title="Usuário">
+            <Frame OutlineColor="Silver"
+               Margin="15"
+               VerticalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="{Binding FotoPerfil}"></Image>
+                    
+                    <Label Text="{Binding Nome}"/>
+                    <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"></BoxView>
+
+                    <Label Text="{Binding Email}"/>
+                    <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"></BoxView>
+
+                    <Button Text="Perfil" Command="{Binding EditarPerfil}"></Button>
+                </StackLayout>
+            </Frame>
+        </ContentPage>
+
+        <ContentPage Title="Editar">
+            <Frame OutlineColor="Silver"
+               Margin="15"
+               VerticalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="{Binding FotoPerfil}"></Image>
+                    <Button Text="Tirar Foto" Command="{Binding TirarFoto}"></Button>
+                    <TableView>
+                        <TableRoot>
+                            <TableSection Title="Dados Pessoais">
+                                <EntryCell IsEnabled="{Binding Editar}" Placeholder="Nome" Text="{Binding Nome}"></EntryCell>
+                                <EntryCell IsEnabled="{Binding Editar}" Placeholder="Data Nascimento" Text="{Binding DataNascimento}"></EntryCell>
+                                <EntryCell IsEnabled="{Binding Editar}" Placeholder="Telefone" Text="{Binding Telefone}"></EntryCell>
+                                <EntryCell IsEnabled="{Binding Editar}" Placeholder="Email" Text="{Binding Email}"></EntryCell>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                    <Button Text="Editar" Command="{Binding EditarInfoPerfil}" IsVisible="{Binding Editar, Converter={StaticResource Key=negativo}}"></Button>
+                    <Button Text="Salvar" Command="{Binding SalvarEdicaoPerfil}" IsVisible="{Binding Editar}"></Button>
+                </StackLayout>
+            </Frame>
+        </ContentPage>
+
+    </TabbedPage.Children>
+
+</TabbedPage>

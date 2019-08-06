@@ -1,5 +1,6 @@
 ﻿using System;
 using TestDrive.Models;
+using TestDrive.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,7 +20,7 @@ namespace TestDrive
         {
             MessagingCenter.Subscribe<Usuario>(this, "SucessoLogin", (usuario) =>
             {
-               MainPage = new NavigationPage(new TestDrive.Views.ListagemPrincipal());
+                MainPage = new MasterDetailView(usuario);
             });
         }
 

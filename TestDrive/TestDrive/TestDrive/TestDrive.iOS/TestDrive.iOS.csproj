@@ -160,4 +160,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\aluracar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
 </Project>
