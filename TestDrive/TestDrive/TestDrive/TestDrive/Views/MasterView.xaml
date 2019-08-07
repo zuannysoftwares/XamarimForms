@@ -24,6 +24,8 @@
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"></BoxView>
 
                     <Button Text="Perfil" Command="{Binding EditarPerfil}"></Button>
+                    <Button Text="Meus Agendamentos" Command="{Binding MeusAgendamentos}"></Button>
+                    <Button Text="Novo Agendamento" Command="{Binding NovoAgendamento}"></Button>
                 </StackLayout>
             </Frame>
         </ContentPage>

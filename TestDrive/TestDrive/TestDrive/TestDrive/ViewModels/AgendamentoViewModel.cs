@@ -1,10 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+﻿using System;
 using System.Windows.Input;
 using TestDrive.Models;
+using TestDrive.Services;
 using TestDrive.Views;
 using Xamarin.Forms;
 
@@ -12,28 +9,26 @@ namespace TestDrive.ViewModels
 {
     public class AgendamentoViewModel : BaseViewModel
     {
-        const string URL_POST_AGENDAMENTO = "https://aluracar.herokuapp.com/salvaragendamento";
-        public Agendamento agendamento { get; set; }
-        public Veiculo Carro
+        public Agendamento Agendamento { get; set; }
+        public string Modelo
         {
-            get
-            {
-                return agendamento.Carro;
-            }
-            set
-            {
-                agendamento.Carro = value;
-            }
+            get { return this.Agendamento.Modelo; }
+            set { this.Agendamento.Modelo = value; }
+        }
+        public decimal Preco
+        {
+            get { return this.Agendamento.Preco; }
+            set { this.Agendamento.Preco = value; }
         }
         public string Nome
         {
             get
             {
-                return agendamento.Nome;
+                return Agendamento.Nome;
             }
             set
             {
-                agendamento.Nome = value;
+                Agendamento.Nome = value;
                 OnPropertyChanged();
                 ((Command)Agendar).ChangeCanExecute();
             }
@@ -42,11 +37,11 @@ namespace TestDrive.ViewModels
         {
             get
             {
-                return agendamento.Telefone;
+                return Agendamento.Telefone;
             }
             set
             {
-                agendamento.Telefone = value;
+                Agendamento.Telefone = value;
                 OnPropertyChanged();
                 ((Command)Agendar).ChangeCanExecute();
             }
@@ -55,11 +50,11 @@ namespace TestDrive.ViewModels
         {
             get
             {
-                return agendamento.Email;
+                return Agendamento.Email;
             }
             set
             {
-                agendamento.Email = value;
+                Agendamento.Email = value;
                 OnPropertyChanged();
                 ((Command)Agendar).ChangeCanExecute();
             }
@@ -68,76 +63,47 @@ namespace TestDrive.ViewModels
         {
             get
             {
-                return agendamento.DataAgenda;
+                return Agendamento.DataAgenda;
             }
             set
             {
-                agendamento.DataAgenda = value;
+                Agendamento.DataAgenda = value;
             }
         }
         public TimeSpan HoraAgenda
         {
             get
             {
-                return agendamento.HoraAgenda;
+                return Agendamento.HoraAgenda;
             }
             set
             {
-                agendamento.HoraAgenda = value;
+                Agendamento.HoraAgenda = value;
             }
         }
+        public ICommand Agendar { get; set; }
 
-        public AgendamentoViewModel(Veiculo car)
+        public AgendamentoViewModel(Veiculo car, Usuario usuario)
         {
-            this.agendamento = new Agendamento();
-            this.agendamento.Carro = car;
+            this.Agendamento = new Agendamento(usuario.nome, usuario.telefone, usuario.email, car.Nome, car.Preco);
 
             Agendar = new Command(() => //Função anônima
             {
-                MessagingCenter.Send<Agendamento>(this.agendamento, "Agendamento");
+                MessagingCenter.Send<Agendamento>(this.Agendamento, "Agendamento");
             }, () =>//Função anônima
             {
-                return 
-                !string.IsNullOrEmpty(this.Nome) 
-                && !string.IsNullOrEmpty(this.Telefone) 
+                return
+                !string.IsNullOrEmpty(this.Nome)
+                && !string.IsNullOrEmpty(this.Telefone)
                 && !string.IsNullOrEmpty(this.Email);
 
             });
         }
 
-        public ICommand Agendar { get; set; }
-
         public async void SalvaAgendamento()
         {
-            HttpClient client = new HttpClient();
-
-            var dataHoraAgendamento = new DateTime(
-                DataAgenda.Year, 
-                DataAgenda.Month, 
-                DataAgenda.Day, 
-                HoraAgenda.Hours, 
-                HoraAgenda.Minutes, 
-                HoraAgenda.Seconds
-                );
-
-
-            var model = JsonConvert.SerializeObject(new
-            {
-                nome = Nome,
-                fone = Telefone,
-                email = Email,
-                carro = Carro.Nome,
-                preco = Carro.Preco,
-                dataAgendamento = dataHoraAgendamento
-            });
-
-            var content = new StringContent(model, Encoding.UTF8, "application/json");
-            var result = await client.PostAsync(URL_POST_AGENDAMENTO, content);
-
-            if (result.IsSuccessStatusCode)
-                MessagingCenter.Send<Agendamento>(this.agendamento, "SucessoAgendamento");
-            else
-                MessagingCenter.Send<ArgumentException>(new ArgumentException(), "FalhaAgendamento");
+            AgendamentoService agendamentoService = new AgendamentoService();
+            await agendamentoService.EnviarAgendamento(this.Agendamento);
         }
 
     }

@@ -13,20 +13,23 @@ namespace TestDrive.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetalheView : ContentPage
     {
-        public Veiculo Carro { get; set; }
-        public DetalheView(Veiculo carro)
+        public Veiculo Carro { get; private set; }
+
+        public Usuario Usuario { get; private set; }
+        public DetalheView(Veiculo carro, Usuario user)
         {
             InitializeComponent();
             this.Carro = carro;
+            this.Usuario = user;
             this.BindingContext = new DetalheViewModel(carro);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingCenter.Subscribe<Veiculo>(this, "Proximo", (msg) =>
+            MessagingCenter.Subscribe<Veiculo>(this, "Proximo", (veiculo) =>
             {
-                Navigation.PushAsync(new AgendamentoView(msg));
+                Navigation.PushAsync(new AgendamentoView(veiculo, this.Usuario));
             });
         }
 

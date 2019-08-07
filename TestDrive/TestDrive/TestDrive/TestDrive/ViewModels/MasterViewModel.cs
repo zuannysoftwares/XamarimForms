@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using TestDrive.Midia;
 using TestDrive.Models;
+using TestDrive.Views;
 using Xamarin.Forms;
 
 namespace TestDrive.ViewModels
@@ -47,6 +48,8 @@ namespace TestDrive.ViewModels
         public ICommand EditarPerfil { get; private set; }
         public ICommand SalvarEdicaoPerfil { get; private set; }
         public ICommand TirarFoto { get; private set; }
+        public ICommand MeusAgendamentos { get; private set; }
+        public ICommand NovoAgendamento { get; private set; }
 
         private ImageSource fotoPerfil = "perfil.png";
 
@@ -62,6 +65,16 @@ namespace TestDrive.ViewModels
         {
             this._usuario = usuario;
             DefinirComandos(usuario);
+            AssinarMensagens();
+        }
+
+        private void AssinarMensagens()
+        {
+            MessagingCenter.Subscribe<byte[]>(this, "FotoTirada", (bytes) =>
+            {
+                FotoPerfil = ImageSource.FromStream(
+                    () => new MemoryStream(bytes));
+            });
         }
 
         private void DefinirComandos(Usuario usuario)
@@ -82,15 +95,19 @@ namespace TestDrive.ViewModels
                 this.Editar = true;
             });
 
+            MeusAgendamentos = new Command(() =>
+            {
+                MessagingCenter.Send<Usuario>(usuario, "MeusAgendamentos");
+            });
+
+            NovoAgendamento = new Command(() =>
+            {
+                MessagingCenter.Send<Usuario>(usuario, "NovoAgendamento");
+            });
+
             TirarFoto = new Command(() =>
             {
                 DependencyService.Get<ICamera>().TirarFoto();
-            });
-
-            MessagingCenter.Subscribe<byte[]>(this, "FotoTirada", (bytes) =>
-            {
-                FotoPerfil = ImageSource.FromStream(
-                    () => new MemoryStream(bytes));
             });
         }
 

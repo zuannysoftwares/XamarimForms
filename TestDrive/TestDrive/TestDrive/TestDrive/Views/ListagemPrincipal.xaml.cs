@@ -13,10 +13,13 @@ namespace TestDrive.Views
     {
 
         public ListagemViewModel ViewModel { get; set; }
-        public ListagemPrincipal()
+        readonly Usuario usuario;
+
+        public ListagemPrincipal(Usuario user)
         {
             InitializeComponent();
             this.ViewModel = new ListagemViewModel();
+            this.usuario = user;
             this.BindingContext = this.ViewModel;
         }
 
@@ -24,15 +27,31 @@ namespace TestDrive.Views
         {
             base.OnAppearing();
 
-            MessagingCenter.Subscribe<Veiculo>(this, "VeiculoSelecionado", (msg) => { Navigation.PushAsync(new DetalheView(msg)); });
+            AssinarMensagens();
 
             await this.ViewModel.GetVeiculos();
-
         }
+
+        private void AssinarMensagens()
+        {
+            MessagingCenter.Subscribe<Veiculo>(this, "VeiculoSelecionado", (veiculo) => { Navigation.PushAsync(new DetalheView(veiculo, this.usuario)); });
+
+            MessagingCenter.Subscribe<Exception>(this, "FalhaListagem", (msg) =>
+            {
+                DisplayAlert("Erro", "Ocorreu um erro ao obter lista de veículos", "OK");
+            });
+        }
+
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+            CancelarAssinatura();
+        }
+
+        private void CancelarAssinatura()
+        {
             MessagingCenter.Unsubscribe<Veiculo>(this, "VeiculoSelecionado");
+            MessagingCenter.Unsubscribe<Exception>(this, "FalhaListagem");
         }
     }
 }
