@@ -5,26 +5,34 @@
              x:Class="ControleXF.Menu.Master">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
-            <StackLayout>
-                <Button Text="Activity Indicator" Clicked="GoActivityIndicatorPage" />
-                <Button Text="Progress Bar" Clicked="GoProgressBarPage" />
-                <Button Text="Box View" Clicked="GoBoxViewPage" />
-                <Button Text="Label" Clicked="GoLabelPage" />
-                <Button Text="Button" Clicked="GoButtonPage" />
-                <Button Text="Entry Editor" Clicked="GoEntryEditorPage" />
-                <Button Text="Date Picker" Clicked="GoDatePickerPage" />
-                <Button Text="Time Picker" Clicked="GoTimerPickerPage" />
-                <Button Text="Picker" Clicked="GoPickerPage" />
-                <Button Text="Search Bar" Clicked="GoSearchBarPage" />
-                <Button Text="Slider Stepper" Clicked="GoSliderStepperPage" />
-                <Button Text="Switch" Clicked="GoSwitchPage" />
-                <Button Text="Image" Clicked="GoImagePage" />
-                <Button Text="List View" Clicked="GoListViewPage" />
-            </StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Button Text="Web view" Clicked="GoWebViewPage" />
+                    <Button Text="Activity Indicator" Clicked="GoActivityIndicatorPage" />
+                    <Button Text="Progress Bar" Clicked="GoProgressBarPage" />
+                    <Button Text="Box View" Clicked="GoBoxViewPage" />
+                    <Button Text="Label" Clicked="GoLabelPage" />
+                    <Button Text="Button" Clicked="GoButtonPage" />
+                    <Button Text="Entry Editor" Clicked="GoEntryEditorPage" />
+                    <Button Text="Date Picker" Clicked="GoDatePickerPage" />
+                    <Button Text="Time Picker" Clicked="GoTimerPickerPage" />
+                    <Button Text="Picker" Clicked="GoPickerPage" />
+                    <Button Text="Table View" Clicked="GoTableViewPage" />
+                    <Button Text="Search Bar" Clicked="GoSearchBarPage" />
+                    <Button Text="Slider Stepper" Clicked="GoSliderStepperPage" />
+                    <Button Text="Switch" Clicked="GoSwitchPage" />
+                    <Button Text="Image" Clicked="GoImagePage" />
+                    <Button Text="List View" Clicked="GoListViewPage" />
+                </StackLayout>
+            </ScrollView>
         </ContentPage>
 
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <page:MainPage />
+        <NavigationPage>
+            <x:Arguments>
+                <page:MainPage />
+            </x:Arguments>
+        </NavigationPage>
     </MasterDetailPage.Detail>
 </MasterDetailPage>
