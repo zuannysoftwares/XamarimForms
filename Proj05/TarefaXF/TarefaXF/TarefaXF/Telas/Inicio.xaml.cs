@@ -16,6 +16,8 @@ namespace TarefaXF.Telas
 		{
 			InitializeComponent ();
             DataHoje.Text = DateTime.Now.DayOfWeek.ToString() + ", " + DateTime.Now.ToString();
+
+            CarregarTarefas();
 		}
 
         public void ActionGoCadastro(object sender, EventArgs args)
@@ -26,9 +28,13 @@ namespace TarefaXF.Telas
         private void CarregarTarefas()
         {
             SLTarefas.Children.Clear();
+            List<Tarefa> listTarefas = new GerenciadorTarefa().ListaTarefas();
+
+            foreach (Tarefa tarefa in listTarefas)
+            {
+                LinhaStackLayout(tarefa);
+            }
         }
-
-
 
         public void LinhaStackLayout(Tarefa tarefa) //Monta toda a estrutura do XAML
         {
