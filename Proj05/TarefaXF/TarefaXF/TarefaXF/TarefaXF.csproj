@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Modelos\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Telas\Cadastro.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
