@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout BackgroundColor="Blue" HeightRequest="250">
-                <Label Text="Meu Dia" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Text="Minhas Tarefas" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <Label x:Name="DataHoje" HorizontalOptions="Start" VerticalOptions="End" TextColor="White"/>
             </StackLayout>
 
