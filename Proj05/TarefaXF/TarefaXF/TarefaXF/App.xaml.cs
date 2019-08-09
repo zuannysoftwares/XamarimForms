@@ -11,7 +11,7 @@ namespace TarefaXF
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TarefaXF.Telas.Inicio());
+            MainPage = new NavigationPage(new Telas.Inicio());
         }
 
         protected override void OnStart()

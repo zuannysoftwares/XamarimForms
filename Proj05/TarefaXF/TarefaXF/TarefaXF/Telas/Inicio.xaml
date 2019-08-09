@@ -6,30 +6,78 @@
         <StackLayout>
             <StackLayout BackgroundColor="Blue" HeightRequest="250">
                 <Label Text="Meu Dia" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="Quinta, 08/08" HorizontalOptions="Start" VerticalOptions="End" TextColor="White"/>
+                <Label x:Name="DataHoje" HorizontalOptions="Start" VerticalOptions="End" TextColor="White"/>
             </StackLayout>
 
             <StackLayout x:Name="SLTarefas" Padding="10" Spacing="10">
                 <StackLayout Orientation="Horizontal" Spacing="15">
-                    <Image VerticalOptions="Center"/>
+                    <Image VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="CheckOff.png"/>
+                                <On Platform="UWP" Value="CheckOff.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                     <Label VerticalOptions="Center" Text="Tarefa 1" HorizontalOptions="FillAndExpand"/>
-                    <Image VerticalOptions="Center" />
-                    <Image VerticalOptions="Center" />
+                    <Image VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="p4.png"/>
+                                <On Platform="UWP" Value="p4.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                    <Image VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="Delete.png"/>
+                                <On Platform="UWP" Value="Delete.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Image VerticalOptions="Center" />
-                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="15">
-                        <Label VerticalOptions="Center" Text="Tarefa 1" TextColor="LightGray"/>
-                        <Label VerticalOptions="Center" Text="Finalizado em 08/08/2019 ás 16:47h" TextColor="LightGray" FontSize="8"/>
+                    <Image VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="CheckOn.png"/>
+                                <On Platform="UWP" Value="CheckOn.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="0">
+                        <Label VerticalOptions="Center" Text="Tarefa 1" TextColor="Gray"/>
+                        <Label VerticalOptions="Center" Text="Finalizado em 08/08/2019 ás 16:47h" TextColor="LightGray" FontSize="12"/>
                     </StackLayout>
-                    <Image />
-                    <Image />
+                    <Image VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="p2.png"/>
+                                <On Platform="UWP" Value="p2.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                    <Image VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="Delete.png"/>
+                                <On Platform="UWP" Value="Delete.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                 </StackLayout>
             </StackLayout>
 
-            <Button Text="Adicionar" HorizontalOptions="Center"/>
-
+            <Button HorizontalOptions="Center" Clicked="ActionGoCadastro" BackgroundColor="Transparent">
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource">
+                        <On Platform="Android, iOS" Value="AddBotao.png"/>
+                        <On Platform="UWP" Value="AddBotao.png"/>
+                    </OnPlatform>
+                </Button.Image>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

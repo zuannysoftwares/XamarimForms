@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{428DF6D5-C876-41FF-A6FB-7A3D04CAE874}</ProjectGuid>
+    <ProjectGuid>{9F9A440E-99BF-4B4F-894B-4E6B4CB133CB}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -153,8 +153,35 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\TarefaXF\TarefaXF.csproj">
-      <Project>{1CF4E4AC-3947-4FD6-B929-4B770784517A}</Project>
+      <Project>{A11E81BB-986A-42BA-86F4-17A6398A5FF8}</Project>
       <Name>TarefaXF</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AddBotao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CheckOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CheckOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\p4.png" />
   </ItemGroup>
 </Project>
