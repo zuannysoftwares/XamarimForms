@@ -55,7 +55,6 @@ namespace TarefaXF.Telas
                 DisplayAlert("ERRO", "Prioridade não foi informada.", "OK");
             }
 
-
             if (retornoErro == false)
             {
                 Tarefa tarefa = new Tarefa();
@@ -65,10 +64,6 @@ namespace TarefaXF.Telas
                 new GerenciadorTarefa().Salvar(tarefa);
 
                 App.Current.MainPage = new NavigationPage(new Inicio()); //Força que a página inicio seja "criada" novamente
-
-                //txtNome.Text = new GerenciadorTarefa().ListaTarefas().Count().ToString();
-
-                //DisplayAlert("ERRO", "", "OK");
             }
         }
 
