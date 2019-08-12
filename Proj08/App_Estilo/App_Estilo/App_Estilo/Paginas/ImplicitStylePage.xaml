@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Estilo.Paginas.ImplicitStylePage">
+    <ContentPage.Resources> <!-- APLICAÇÃO DE STYLOS --> 
+        <ResourceDictionary>
+            <Style TargetType="Label"> <!-- Qual o componente que receberá esses stylos -->
+                <Setter Property="BackgroundColor" Value="LightSteelBlue"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="Chocolate"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms! 1"/>
+            <Label Text="Welcome to Xamarin.Forms! 2"/>
+            <Label Text="Welcome to Xamarin.Forms! 3"/>
+            <Label Text="Welcome to Xamarin.Forms! 4"/>
+
+            <StackLayout>
+                <StackLayout.Resources> <!-- Aplica stylo diferente para as labels fora da raíz  -->
+                    <ResourceDictionary>
+                        <Style TargetType="Label">
+                            <Setter Property="TextColor" Value="YellowGreen"/>
+                            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                            <Setter Property="BackgroundColor" Value="DeepSkyBlue"/>
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+                <Label Text="Olá sou um novo STYLO Xamarin.Forms! 1"/>
+                <Label Text="Olá sou um novo STYLO Xamarin.Forms! 2"/>
+                <Label Text="Olá sou um novo STYLO Xamarin.Forms! 3"/>
+                <Label Text="Olá sou um novo STYLO Xamarin.Forms! 4"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
