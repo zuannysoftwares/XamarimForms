@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppVagas.Paginas.ConsultaVagas">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0">
+                <Label Text="Vagas" FontSize="24" />
+                <Label Text="Encontre seu emprego aqui" Margin="15,17,0,10" FontSize="12" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Adicionar" Clicked="GoCadastro" />
+                <Button Text="Listar Vagas" Clicked="GoListarVagas" />
+            </StackLayout>
+
+            <Entry Placeholder="Pesquisar" TextChanged="PesquisarAction"/>
+            <Label Text="" x:Name="lblPesquisaDeVagas" />
+
+            <ListView x:Name="ListaVagasConsulta" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding NomeVaga}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Empresa}" />
+                                    <Label Text="{Binding Cidade}" />
+                                </StackLayout>
+
+                                <Label Text="+Detalhe" Grid.Column="1">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="MaisDetalhe" CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
