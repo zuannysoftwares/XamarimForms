@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Mimica.View.Jogo">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="{Binding NomeGrupo}"/>
+                <Label Text="{Binding PalavraPontuacao}"/>
+                <Label Text="{Binding Palavra}" HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Mostrar" IsVisible="{Binding IsVisibleContainerMostrar}" Command="{Binding MostarPalavra}"/>
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsVisibleContainerContagem}">
+                <Label Text="{Binding TextoContagem}" FontSize="100" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="seg" HorizontalOptions="CenterAndExpand" Margin="0,14,0,0"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Acertou" BackgroundColor="LightGreen" Command="{Binding Acertou}"/>
+                    <Button Text="Errou" BackgroundColor="OrangeRed" Command="{Binding Errou}"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsVisibleContainerIniciar}">
+                <Button Text="Iniciar" Command="{Binding Iniciar}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
