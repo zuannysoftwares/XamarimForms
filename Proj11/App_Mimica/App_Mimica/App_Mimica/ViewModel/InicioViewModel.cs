@@ -9,6 +9,19 @@ namespace App_Mimica.ViewModel
 {
     public class InicioViewModel : INotifyPropertyChanged
     {
+        public string MsgErro
+        {
+            get
+            {
+                return _msgErro;
+            }
+            set
+            {
+                _msgErro = value;
+                OnPropertyChanged("MsgErro");
+            }
+        }
+        private string _msgErro;
         public JogoModel Jogo { get; set; }
         public Command IniciarCommand { get; set; }
         public InicioViewModel()
@@ -17,14 +30,32 @@ namespace App_Mimica.ViewModel
             Jogo = new JogoModel();
             Jogo.Grupo1 = new GrupoModel();
             Jogo.Grupo2 = new GrupoModel();
+
+            Jogo.Tempo = 60; //segundos
+            Jogo.Rodadas = 3;
+
         }
 
         private void IniciarJogo()
         {
-            Armazenamento.Armazenamento.Jogo = this.Jogo;
-            Armazenamento.Armazenamento.RodadaAtual = 1;
+            string erro = "";
+            if (Jogo.Tempo < 10)
+                erro += "Tempo mínimo da palavra é de 10 segundos";
 
-            App.Current.MainPage = new View.Jogo(Jogo.Grupo1);
+            if (Jogo.Rodadas <= 0)
+                erro += "\nÉ preciso ter no mínimo 1 rodada para iniciar o jogo";
+
+            if(erro.Length > 0)
+            {
+                MsgErro = erro;
+            }
+            else
+            {
+                Armazenamento.Armazenamento.Jogo = this.Jogo;
+                Armazenamento.Armazenamento.RodadaAtual = 1;
+
+                App.Current.MainPage = new View.Jogo(Jogo.Grupo1);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

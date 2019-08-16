@@ -10,6 +10,7 @@ namespace App_Mimica.ViewModel
 {
     public class JogoViewModel : INotifyPropertyChanged
     {
+        public string NumeroGrupo { get; set; }
         public string NomeGrupo { get; set; }
         private byte _palavraPontuacao;
         public byte PalavraPontuacao
@@ -103,6 +104,16 @@ namespace App_Mimica.ViewModel
         public JogoViewModel(GrupoModel grupo)
         {
             NomeGrupo = grupo.NomeGrupo;
+
+            if(grupo == Armazenamento.Armazenamento.Jogo.Grupo1)
+            {
+                NumeroGrupo = "Grupo 1 ";
+            }
+            else
+            {
+                NumeroGrupo = "Grupo 2 ";
+            }
+
             IsVisibleContainerContagem = false;
             IsVisibleContainerIniciar = false;
             IsVisibleMostrar = true;
@@ -203,6 +214,10 @@ namespace App_Mimica.ViewModel
         private void GoProximoGrupo()
         {
             GrupoModel group;
+
+            var rodadas = Armazenamento.Armazenamento.Jogo.Rodadas;
+            var rodadaAtual = Armazenamento.Armazenamento.RodadaAtual;
+
             if (Armazenamento.Armazenamento.Jogo.Grupo1 == GrupoModel)
             {
                 group = Armazenamento.Armazenamento.Jogo.Grupo2;
@@ -210,12 +225,13 @@ namespace App_Mimica.ViewModel
             else
             {
                 group = Armazenamento.Armazenamento.Jogo.Grupo1;
-                Armazenamento.Armazenamento.RodadaAtual++;
+                rodadaAtual = Armazenamento.Armazenamento.RodadaAtual++;
             }
-            if(Armazenamento.Armazenamento.RodadaAtual > Armazenamento.Armazenamento.Jogo.Rodadas)
+            if(rodadaAtual > rodadas)
             {
                 App.Current.MainPage = new View.Resultado();
             }
+            else
             {
                 App.Current.MainPage = new View.Jogo(group);
             }

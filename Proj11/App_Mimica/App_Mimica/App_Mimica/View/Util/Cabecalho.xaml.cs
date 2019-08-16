@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace App_Mimica.View
+namespace App_Mimica.View.Util
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Resultado : ContentPage
+	public partial class Cabecalho : ContentView
 	{
-		public Resultado ()
+		public Cabecalho ()
 		{
 			InitializeComponent ();
-            BindingContext = new ViewModel.ResultadoViewModel();
 		}
 	}
 }
