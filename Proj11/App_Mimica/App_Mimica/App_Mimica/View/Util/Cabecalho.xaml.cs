@@ -15,6 +15,18 @@ namespace App_Mimica.View.Util
 		public Cabecalho ()
 		{
 			InitializeComponent ();
+            BindingContext = new ViewModel.CabecalhoViewModel();
 		}
-	}
+
+        public void ReiniciarEvento(object sender, EventArgs args)
+        {
+            var viewModel = (ViewModel.CabecalhoViewModel)this.BindingContext;
+
+            if(viewModel.ReiniciarJogo.CanExecute(null))
+            {
+                viewModel.ReiniciarJogo.Execute(null);
+            }
+
+        }
+    }
 }

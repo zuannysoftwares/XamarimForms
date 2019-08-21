@@ -10,33 +10,38 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
-            <cabe:Cabecalho />
-            <StackLayout Style="{StaticResource Container}">
-                <StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding NumeroGrupo}"/>
-                        <Label Text="{Binding NomeGrupo}"/>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <cabe:Cabecalho />
+                <StackLayout Style="{StaticResource Container}">
+                    <Frame>
+                        <StackLayout Style="{StaticResource ContainerEspeial}">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding NumeroGrupo}" FontSize="32"/>
+                                <Label Text="{Binding NomeGrupo}" FontSize="32"/>
+                            </StackLayout>
+
+                            <Label Text="{Binding PalavraPontuacao, Converter={StaticResource convPontuacao}}" FontSize="32"/>
+                            <Label Text="{Binding Palavra}" HorizontalOptions="CenterAndExpand" FontSize="64" FontAttributes="Bold"/>
+                            <Button Text="Mostrar" IsVisible="{Binding IsVisibleMostrar}" Command="{Binding MostrarPalavra}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <StackLayout IsVisible="{Binding IsVisibleContainerContagem}">
+                        <Label Text="{Binding TextoContagem}" FontSize="100" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="seg" HorizontalOptions="CenterAndExpand" Margin="0,14,0,0"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button Text="Acertou" HorizontalOptions="Center" BackgroundColor="#00B22D" TextColor="#FFFFFF" Command="{Binding Acertou}"/>
+                            <Button Text="Errou" HorizontalOptions="Center" BackgroundColor="#FF4000" TextColor="#FFFFFF" Command="{Binding Errou}"/>
+                        </StackLayout>
                     </StackLayout>
 
-                    <Label Text="{Binding PalavraPontuacao, Converter={StaticResource convPontuacao}}"/>
-                    <Label Text="{Binding Palavra}" HorizontalOptions="CenterAndExpand"/>
-                    <Button Text="Mostrar" IsVisible="{Binding IsVisibleMostrar}" Command="{Binding MostrarPalavra}"/>
-                </StackLayout>
-
-                <StackLayout IsVisible="{Binding IsVisibleContainerContagem}">
-                    <Label Text="{Binding TextoContagem}" FontSize="100" HorizontalOptions="CenterAndExpand"/>
-                    <Label Text="seg" HorizontalOptions="CenterAndExpand" Margin="0,14,0,0"/>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Acertou" BackgroundColor="LightGreen" Command="{Binding Acertou}"/>
-                        <Button Text="Errou" BackgroundColor="OrangeRed" Command="{Binding Errou}"/>
+                    <StackLayout IsVisible="{Binding IsVisibleContainerIniciar}">
+                        <Button Text="Iniciar" Command="{Binding Iniciar}" />
                     </StackLayout>
-                </StackLayout>
-                <StackLayout IsVisible="{Binding IsVisibleContainerIniciar}">
-                    <Button Text="Iniciar" Command="{Binding Iniciar}" />
                 </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

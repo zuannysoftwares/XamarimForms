@@ -19,22 +19,22 @@
                 <Setter Property="Padding" Value="10"/>
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
             </Style>
-            
-            
+
+            <!--CONTAINER ESPECIAL-->
+            <Style x:Key="ContainerEspeial" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="#FBFFB3"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="#F78053"/>
                 <Setter Property="HorizontalOptions" Value="Start" />
             </Style>
 
             <Style TargetType="Frame">
-                <Setter Property="OutlineColor"
-                    Value="#dfdfe1" />
-                <Setter Property="CornerRadius"
-                    Value="10" />
-                <Setter Property="HasShadow"
-                    Value="True" />
-                <Setter Property="Padding"
-                    Value="4" />
+                <Setter Property="OutlineColor" Value="#F78053" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Padding" Value="0" />
             </Style>
 
             <OnPlatform x:Key="MediumSize"
@@ -51,6 +51,7 @@
                     Value="White" />
                 <Setter Property="FontSize"
                     Value="{StaticResource MediumSize}" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
         </ResourceDictionary>
 

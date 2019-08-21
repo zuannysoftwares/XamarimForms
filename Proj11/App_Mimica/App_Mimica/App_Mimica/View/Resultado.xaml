@@ -4,23 +4,35 @@
              xmlns:cabe="clr-namespace:App_Mimica.View.Util"
              x:Class="App_Mimica.View.Resultado">
     <ContentPage.Content>
-        <StackLayout Spacing="0">
-            <cabe:Cabecalho />
-            <StackLayout Style="{StaticResource Container}">
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Grupo 1 - " FontSize="20"/>
-                    <Label Text="{Binding Jogo.Grupo1.NomeGrupo}"/>
-                </StackLayout>
-                <Label Text="{Binding Jogo.Grupo1.Pontuacao}" FontSize="64" HorizontalOptions="Center"/>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <cabe:Cabecalho />
+                <StackLayout Style="{StaticResource Container}">
+                    <Frame>
+                        <StackLayout Style="{StaticResource ContainerEspeial}">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Grupo 1 - " FontSize="20"/>
+                                <Label Text="{Binding Jogo.Grupo1.NomeGrupo}"/>
+                            </StackLayout>
+                            <Label Text="{Binding Jogo.Grupo1.Pontuacao}" FontSize="100" HorizontalOptions="Center"/>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Grupo 2 - " FontSize="20"/>
-                    <Label Text="{Binding Jogo.Grupo2.NomeGrupo}"/>
-                </StackLayout>
-                <Label Text="{Binding Jogo.Grupo2.Pontuacao}" FontSize="64" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
 
-                <Button Text="Jogar outra vez" Command="{Binding JogarNovamente}"/>
+                    <Frame>
+                        <StackLayout Style="{StaticResource ContainerEspeial}">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Grupo 2 - " FontSize="20"/>
+                                <Label Text="{Binding Jogo.Grupo2.NomeGrupo}"/>
+                            </StackLayout>
+                            <Label Text="{Binding Jogo.Grupo2.Pontuacao}" FontSize="100" HorizontalOptions="Center"/>
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Button Text="Jogar outra vez" Command="{Binding JogarNovamente}"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

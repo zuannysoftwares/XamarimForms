@@ -141,7 +141,7 @@ namespace App_Mimica.ViewModel
             {
                 case 0://ALEATRóIO
                     Random rdAl = new Random();
-                    int niv = rdAl.Next(0, 2);
+                    int niv = rdAl.Next(0, 3);
                     int indAl = rdAl.Next(0, Armazenamento.Armazenamento.Palavras[niv].Length);
 
                     Palavra = Armazenamento.Armazenamento.Palavras[niv][indAl];
@@ -190,6 +190,9 @@ namespace App_Mimica.ViewModel
             IsVisibleContainerContagem = true;
 
             int i = Armazenamento.Armazenamento.Jogo.Tempo;
+            TextoContagem = i.ToString();
+            i--;
+
             Device.StartTimer(TimeSpan.FromSeconds(1), () => 
             {
                 TextoContagem = i.ToString();

@@ -3,8 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App_Mimica.View.Util.Cabecalho">
   <ContentView.Content>
-      <StackLayout Style="{StaticResource Cabecalho}">
+      <StackLayout Orientation="Horizontal" Style="{StaticResource Cabecalho}">
           <Label Text="Zuanny Softwares - Jogo de Mímica" Style="{StaticResource CabecalhoTitulo}" />
-      </StackLayout>
+            <Label Text="Reiniciar Jogo" HorizontalOptions="EndAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ReiniciarEvento" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
   </ContentView.Content>
 </ContentView>
