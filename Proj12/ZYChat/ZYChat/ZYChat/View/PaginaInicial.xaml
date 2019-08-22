@@ -9,9 +9,11 @@
 
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Entry Text="{Binding Nome}" BackgroundColor="White" TextColor="#5ED055"/>
-                <Entry Text="{Binding Senha}" BackgroundColor="White" TextColor="#5ED055"/>
+                <Entry Text="{Binding Senha}" IsPassword="True" BackgroundColor="White" TextColor="#5ED055"/>
 
-                <Button BackgroundColor="Transparent" TextColor="White" Text="Acessar/Cadastrar" />
+                <Button BackgroundColor="Transparent" Command="{Binding AcessarCommand}" TextColor="White" Text="Acessar/Cadastrar" />
+
+                <Label Text="{Binding Mensagem}" TextColor="White"/>
 
             </StackLayout>
             

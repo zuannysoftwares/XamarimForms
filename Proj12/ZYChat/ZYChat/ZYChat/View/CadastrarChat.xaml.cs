@@ -15,6 +15,7 @@ namespace ZYChat.View
 		public CadastrarChat ()
 		{
 			InitializeComponent ();
+            BindingContext = new ViewModel.CadastrarChatViewModel();
 		}
 	}
 }

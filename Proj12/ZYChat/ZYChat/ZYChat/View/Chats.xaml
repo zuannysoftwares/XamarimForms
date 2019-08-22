@@ -1,17 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="ZYCHat"
              x:Class="ZYChat.View.Chats">
 
     <ContentPage.ToolbarItems>
-        
+        <ToolbarItem Icon="add.png" Text="Adicionar Chat" Command="{Binding AdicionarCommand}" />
+        <ToolbarItem Icon="sort.png" Text="Ordenar Alfabéticamente" Command="{Binding OrdenarCommand}"/>
+        <ToolbarItem Icon="refresh.png" Text="Atualiza lista de Chats" Command="{Binding AtualizarCommand}"/>
+
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <ListView>
+        <ListView ItemsSource="{Binding Chats}" SelectedItem="{Binding SelectedItemChat, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Nome}" TextColor="#5ED055"/>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Nome}" TextColor="#5ED055" />
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -5,15 +5,16 @@ using System.Net;
 using System.Net.Http;
 using ZYChat.Model;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace ZYChat.Service
 {
     public class ServiceWS
     {
         private static string EnderecoBase = "http://ws.spacedu.com.br/xf2018/rest/api";
-        public static Usuario Usuario(Usuario usuario)
+        public async static Task<Usuario> GetUsuario(Usuario usuario)
         {
-            var url = EnderecoBase + "/usuario";
+            var URL = EnderecoBase + "/usuario";
 
             //StringContent param = new StringContent(string.Format("nome={0}&password={1}", usuario.nome, usuario.password));
 
@@ -22,14 +23,14 @@ namespace ZYChat.Service
                 new KeyValuePair<string, string>("password", usuario.password)
             });
 
-
             HttpClient request = new HttpClient();
 
-            HttpResponseMessage response = request.PostAsync(url, param).GetAwaiter().GetResult();
+            HttpResponseMessage response = await request.PostAsync(URL, param);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Usuario>(content);
             }
 
             return null;

@@ -15,6 +15,7 @@ namespace ZYChat.View
 		public PaginaInicial ()
 		{
 			InitializeComponent ();
+            BindingContext = new ViewModel.PaginaInicialViewModel();
 		}
 	}
 }
