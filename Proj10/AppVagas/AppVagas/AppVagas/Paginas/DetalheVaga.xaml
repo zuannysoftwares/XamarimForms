@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppVagas.Paginas.DetalheVaga">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding NomeVaga}" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold"/>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Empresa:" FontAttributes="Bold"/>
+                <Label Text="{Binding Empresa}" FontSize="15" HorizontalOptions="Center" TextColor="DarkTurquoise"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Quantidade de Vagas:" FontAttributes="Bold"/>
+                <Label Text="{Binding Quantidade}" />    
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Cidade:" FontAttributes="Bold"/>
+                <Label Text="{Binding Cidade}" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Salario(R$):" FontAttributes="Bold"/>
+                <Label Text="{Binding Salario}" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Descrição da Vaga:" FontAttributes="Bold"/>
+                <Label Text="{Binding DescricaoVaga}" FontAttributes="Italic" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tipo de Contratação:" FontAttributes="Bold"/>
+                <Label Text="{Binding TipoContratacao}" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Telefone da empresa:" FontAttributes="Bold"/>
+                <Label Text="{Binding Telefone}" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="E-mail para contato:" FontAttributes="Bold"/>
+                <Label Text="{Binding Email}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

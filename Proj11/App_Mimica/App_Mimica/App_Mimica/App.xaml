@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Mimica.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Cabeçalho-->
+            <Style TargetType="StackLayout" x:Key="Cabecalho">
+                <Setter Property="BackgroundColor" Value="#F2C14E"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+            <Style TargetType="Label" x:Key="CabecalhoTitulo">
+                <Setter Property="TextColor" Value="#FFFFFF"/>
+            </Style>
+
+            <!--CONTAINER-->
+            <Style x:Key="Container" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="#FAFF7F"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <!--CONTAINER ESPECIAL-->
+            <Style x:Key="ContainerEspeial" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="#FBFFB3"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#F78053"/>
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+
+            <Style TargetType="Frame">
+                <Setter Property="OutlineColor" Value="#F78053" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+
+            <OnPlatform x:Key="MediumSize"
+                    x:TypeArguments="x:Double"
+                    iOS="16"
+                    Android="16" />
+            
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius"
+                    Value="10" />
+                <Setter Property="BackgroundColor"
+                    Value="#3497fd" />
+                <Setter Property="TextColor"
+                    Value="White" />
+                <Setter Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
