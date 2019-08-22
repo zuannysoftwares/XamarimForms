@@ -37,6 +37,7 @@ namespace ZYChat.ViewModel
             {
                 MensagemErro = false;
                 Carregando = true;
+
                 var user = new Usuario();
                 user.nome = Nome;
                 user.password = Senha;

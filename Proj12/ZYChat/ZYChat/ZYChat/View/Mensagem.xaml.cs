@@ -17,7 +17,7 @@ namespace ZYChat.View
 		{
 			InitializeComponent ();
 
-            BindingContext = new ViewModel.MensagemViewModel(chat, SLMenagemContainer);
+            BindingContext = new ViewModel.MensagemViewModel(chat);
 		}
 	}
 }

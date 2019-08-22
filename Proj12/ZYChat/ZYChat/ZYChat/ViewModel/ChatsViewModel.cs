@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using ZYChat.Model;
 using ZYChat.Service;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ZYChat.ViewModel
 {
@@ -17,6 +18,8 @@ namespace ZYChat.ViewModel
 
         private Chat _selectedItemChat;
 
+        private bool _carregando;
+        public bool Carregando { get { return _carregando; } set { _carregando = value; OnPropertyChanged("Carregando"); } }
         public Chat SelectedItemChat { get { return _selectedItemChat; } set { _selectedItemChat = value; OnPropertyChanged("SelectedItemChat"); GoPaginaMensagem(value); } }
 
         public Command AdicionarCommand { get; set; }
@@ -26,10 +29,17 @@ namespace ZYChat.ViewModel
 
         public ChatsViewModel()
         {
-            Chats = ServiceWS.GetChats();
+            Task.Run(() => CarregarChats());
+
             AdicionarCommand = new Command(Adicionar);
             OrdenarCommand = new Command(Ordenar);
             AtualizarCommand = new Command(Atualizar);
+        }
+        private async Task CarregarChats()
+        {
+            Carregando = true;
+            Chats = await ServiceWS.GetChats();
+            Carregando = false;
         }
 
         private void Adicionar()
@@ -44,12 +54,12 @@ namespace ZYChat.ViewModel
 
         private void Atualizar()
         {
-            Chats = ServiceWS.GetChats();
+            Task.Run(() => CarregarChats());
         }
 
         private void GoPaginaMensagem(Chat chat)
         {
-            if(chat != null)
+            if (chat != null)
             {
                 SelectedItemChat = null;
 

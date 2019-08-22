@@ -36,16 +36,16 @@ namespace ZYChat.Service
             return null;
         }
 
-        public static List<Chat> GetChats()
+        public async static Task<List<Chat>> GetChats()
         {
             var url = EnderecoBase + "/chats";
 
             HttpClient request = new HttpClient();
-            HttpResponseMessage response = request.GetAsync(url).GetAwaiter().GetResult();
+            HttpResponseMessage response = await request.GetAsync(url);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                string content = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                string content = await response.Content.ReadAsStringAsync();
 
                 if (content.Length > 2)
                 {
