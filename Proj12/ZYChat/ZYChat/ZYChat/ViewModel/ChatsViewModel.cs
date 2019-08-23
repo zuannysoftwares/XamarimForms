@@ -17,6 +17,8 @@ namespace ZYChat.ViewModel
         public List<Chat> Chats { get { return _chats; } set { _chats = value; OnPropertyChanged("Chats"); } }
 
         private Chat _selectedItemChat;
+        private bool _mensagemErro;
+        public bool MensagemErro { get { return _mensagemErro; } set { _mensagemErro = value; OnPropertyChanged("MensagemErro"); } }
 
         private bool _carregando;
         public bool Carregando { get { return _carregando; } set { _carregando = value; OnPropertyChanged("Carregando"); } }
@@ -37,9 +39,18 @@ namespace ZYChat.ViewModel
         }
         private async Task CarregarChats()
         {
-            Carregando = true;
-            Chats = await ServiceWS.GetChats();
-            Carregando = false;
+            try
+            {
+                MensagemErro = false;
+                Carregando = true;
+                Chats = await ServiceWS.GetChats();
+                Carregando = false;
+            }
+            catch (Exception e)
+            {
+                Carregando = false;
+                MensagemErro = true;
+            }
         }
 
         private void Adicionar()

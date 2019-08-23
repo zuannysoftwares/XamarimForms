@@ -7,7 +7,7 @@ using ZYChat.Model;
 using ZYChat.Service;
 using System.Linq;
 using ZYChat.Util;
-
+using System.Threading.Tasks;
 
 namespace ZYChat.ViewModel
 {
@@ -30,10 +30,13 @@ namespace ZYChat.ViewModel
             }
         }
 
+        private bool _mensagemErro;
+        public bool MensagemErro { get { return _mensagemErro; } set { _mensagemErro = value; OnPropertyChanged("MensagemErro"); } }
+
         private string _txtMensagem;
-
+        private bool _carregando;
         public string TxtMensagem { get { return _txtMensagem; } set { _txtMensagem = value; OnPropertyChanged("TxtMensagem"); } }
-
+        public bool Carregando { get { return _carregando; } set { _carregando = value; OnPropertyChanged("Carregando"); } }
         public Command btnEnviarCommand { get; set; }
         public Command AtualizarCommand { get; set; }
 
@@ -41,19 +44,43 @@ namespace ZYChat.ViewModel
         public MensagemViewModel(Chat chat)
         {
             this.chat = chat;
-            Mensagens = ServiceWS.GetMensagensChat(chat);
+            //Mensagens = await ServiceWS.GetMensagensChat(chat);
 
-            Atualizar();
+            Task.Run(() => Atualizar());
 
             btnEnviarCommand = new Command(BtnEnviar);
-            AtualizarCommand = new Command(Atualizar);
+            AtualizarCommand = new Command(AtualizarNoAsync);
 
-            Device.StartTimer(TimeSpan.FromSeconds(1), () => { Atualizar(); return true; });
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                Task.Run(() => AtualizarSemRecarregarTela());
+                return true;
+            });
         }
 
-        private void Atualizar()
+        private async Task Atualizar()
         {
-            Mensagens = ServiceWS.GetMensagensChat(chat);
+            try
+            {
+                MensagemErro = false;
+                Carregando = true;
+                Mensagens = await ServiceWS.GetMensagensChat(chat);
+                Carregando = false;
+            }
+            catch (Exception e)
+            {
+                Carregando = false;
+                MensagemErro = true;
+            }
+        }
+
+        private async Task AtualizarSemRecarregarTela()
+        {
+            Mensagens = await ServiceWS.GetMensagensChat(chat);
+        }
+
+        private void AtualizarNoAsync()
+        {
+            Task.Run(() => Atualizar());
         }
 
         private void BtnEnviar()
@@ -66,7 +93,7 @@ namespace ZYChat.ViewModel
             };
 
             ServiceWS.InsertMensagem(msg);
-            Atualizar();
+            Task.Run(() => Atualizar());
 
             TxtMensagem = string.Empty;
         }

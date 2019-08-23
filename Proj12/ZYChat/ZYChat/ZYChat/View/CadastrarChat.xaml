@@ -11,11 +11,14 @@
                 <Label Text="{Binding mensagem}" TextColor="White"/>
             </StackLayout>
             
-            <StackLayout BackgroundColor="#5ED055" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="False" x:Name="SLCarregando">
+            <StackLayout BackgroundColor="#5ED055" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="{Binding Carregando}" x:Name="SLCarregando">
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <ActivityIndicator IsRunning="True" Color="#FFFFFF" />
                     <Label TextColor="#FFFFFF" Text="Carregando chat/sala..."/>
                 </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="#FF4444" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,1,1,0.1" IsVisible="{Binding MensagemErro}" Padding="7" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Ocorreu um erro inesperado. Tente novamente." TextColor="White"/>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

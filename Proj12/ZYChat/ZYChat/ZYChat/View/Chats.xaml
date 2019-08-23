@@ -31,6 +31,9 @@
                     <Label TextColor="#FFFFFF" Text="Carregando Chats..."/>
                 </StackLayout>
             </StackLayout>
+            <StackLayout BackgroundColor="#FF4444" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,1,1,0.1" IsVisible="{Binding MensagemErro}" Padding="7" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Ocorreu um erro inesperado. Atualize o Chat e tente novamente." TextColor="White"/>
+            </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

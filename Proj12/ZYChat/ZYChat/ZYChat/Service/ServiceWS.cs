@@ -59,11 +59,11 @@ namespace ZYChat.Service
             }
             else
             {
-                return null;
+                throw new Exception("Erro: " + response.StatusCode);
             }
         }
 
-        public static bool InsertChat(Chat chat)
+        public async static Task<bool> InsertChat(Chat chat)
         {
             var url = EnderecoBase + "/chat";
 
@@ -73,7 +73,7 @@ namespace ZYChat.Service
 
             HttpClient request = new HttpClient();
 
-            HttpResponseMessage response = request.PostAsync(url, param).GetAwaiter().GetResult();
+            HttpResponseMessage response = await request.PostAsync(url, param);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -118,16 +118,16 @@ namespace ZYChat.Service
             return false;
         }
 
-        public static List<Mensagem> GetMensagensChat(Chat chat)
+        public async static Task<List<Mensagem>> GetMensagensChat(Chat chat)
         {
             var url = EnderecoBase + "/chat/" + chat.id + "/msg";
 
             HttpClient request = new HttpClient();
-            HttpResponseMessage response = request.GetAsync(url).GetAwaiter().GetResult();
+            HttpResponseMessage response = await request.GetAsync(url);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                string content = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                string content = await response.Content.ReadAsStringAsync();
 
                 if (content.Length > 2)
                 {
@@ -139,8 +139,10 @@ namespace ZYChat.Service
                     return null;
                 }
             }
-
-            return null;
+            else
+            {
+                throw new Exception("Erro: " + response.StatusCode);
+            }
         }
 
         public static bool InsertMensagem(Mensagem mensagem)

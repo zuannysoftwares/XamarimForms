@@ -57,6 +57,9 @@
                     <Label TextColor="#FFFFFF" Text="Carregando mensagens..."/>
                 </StackLayout>
             </StackLayout>
+            <StackLayout BackgroundColor="#FF4444" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0.9,1,0.1" IsVisible="{Binding MensagemErro}" Padding="7" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Ocorreu um erro inesperado. Tente novamente." TextColor="White"/>
+            </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
