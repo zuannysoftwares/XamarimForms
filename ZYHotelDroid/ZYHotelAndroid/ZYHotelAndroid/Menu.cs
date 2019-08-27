@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MySql.Data.MySqlClient;
 
 namespace ZYHotelAndroid
 {
@@ -100,12 +101,12 @@ namespace ZYHotelAndroid
 
         private void TotalEntradas()
         {
-            SqlCommand cmdVerificar;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar;
+            MySqlDataReader reader;
 
             con.AbreConexao();
 
-            cmdVerificar = new SqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = GETDATE() and tipo = @tipo", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = curDate() and tipo = @tipo", con.conex);
             cmdVerificar.Parameters.AddWithValue("@tipo", "Entrada");
 
             reader = cmdVerificar.ExecuteReader();
@@ -127,12 +128,12 @@ namespace ZYHotelAndroid
 
         private void TotalSaidas()
         {
-            SqlCommand cmdVerificar;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar;
+            MySqlDataReader reader;
 
             con.AbreConexao();
 
-            cmdVerificar = new SqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = GETDATE() and tipo = @tipo", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = curDate() and tipo = @tipo", con.conex);
             cmdVerificar.Parameters.AddWithValue("@tipo", "Saída");
 
             reader = cmdVerificar.ExecuteReader();

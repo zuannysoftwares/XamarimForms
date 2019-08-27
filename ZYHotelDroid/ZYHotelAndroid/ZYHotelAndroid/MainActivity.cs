@@ -6,6 +6,7 @@ using Android.Widget;
 using System;
 using System.Data.SqlClient;
 using Android.Content;
+using MySql.Data.MySqlClient;
 
 namespace ZYHotelAndroid
 {
@@ -63,12 +64,12 @@ namespace ZYHotelAndroid
                 return;
             }
 
-            SqlCommand cmdVerificar;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar;
+            MySqlDataReader reader;
 
             con.AbreConexao();
 
-            cmdVerificar = new SqlCommand("SELECT * FROM usuarios WHERE usuario = @usuario and senha = @senha", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT * FROM usuarios WHERE usuario = @usuario and senha = @senha", con.conex);
             cmdVerificar.Parameters.AddWithValue("@usuario", edtUsuario.Text);
             cmdVerificar.Parameters.AddWithValue("@senha", edtSenha.Text);
 
@@ -80,10 +81,6 @@ namespace ZYHotelAndroid
                 {
                     var.nomeUsuario = reader["nome"].ToString();
                     var.cargoUsuario = reader["cargo"].ToString();
-
-
-
-
                 }
 
                 //INTENT PARA PASSAR PARÂMETROS ENTRE ACTIVITIES

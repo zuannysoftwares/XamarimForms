@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MySql.Data.MySqlClient;
 
 namespace ZYHotelAndroid
 {
@@ -49,10 +50,10 @@ namespace ZYHotelAndroid
         {
             con.AbreConexao();
 
-            SqlCommand cmdVerificar;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar;
+            MySqlDataReader reader;
 
-            cmdVerificar = new SqlCommand("SELECT * FROM gastos WHERE data = GETDATE()", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT * FROM gastos WHERE data = curDate()", con.conex);
 
             reader = cmdVerificar.ExecuteReader();
 
@@ -78,11 +79,11 @@ namespace ZYHotelAndroid
         {
             con.AbreConexao();
 
-            SqlCommand cmdVerificar, cmd;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar, cmd;
+            MySqlDataReader reader;
             string sql;
 
-            cmd = new SqlCommand("INSERT INTO gastos (descricao, valor, funcionario, data) VALUES(@descricao, @valor, @funcionario, GETDATE())", con.conex);
+            cmd = new MySqlCommand("INSERT INTO gastos (descricao, valor, funcionario, data) VALUES(@descricao, @valor, @funcionario, curDate())", con.conex);
             cmd.Parameters.AddWithValue("@descricao", edtGasto.Text);
             cmd.Parameters.AddWithValue("@valor", Convert.ToDouble(edtValor.Text));
             cmd.Parameters.AddWithValue("@funcionario", var.nomeUsuario);
@@ -91,7 +92,7 @@ namespace ZYHotelAndroid
 
             //RECUPERAR O ULTIMO ID DO GASTO
             con.AbreConexao();
-            cmdVerificar = new SqlCommand("SELECT id FROM gastos order by id desc LIMIT 1", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT id FROM gastos order by id desc LIMIT 1", con.conex);
 
             reader = cmdVerificar.ExecuteReader();
 
@@ -106,8 +107,8 @@ namespace ZYHotelAndroid
 
             //LANÇAR O GASTO NAS MOVIMENTAÇÕES
             con.AbreConexao();
-            sql = "INSERT INTO movimentacoes (tipo, movimento, valor, funcionario, data, id_movimento) VALUES (@tipo, @movimento, @valor, @funcionario, GETDATE(), @id_movimento)";
-            cmd = new SqlCommand(sql, con.conex);
+            sql = "INSERT INTO movimentacoes (tipo, movimento, valor, funcionario, data, id_movimento) VALUES (@tipo, @movimento, @valor, @funcionario, curDate(), @id_movimento)";
+            cmd = new MySqlCommand(sql, con.conex);
 
             cmd.Parameters.AddWithValue("@tipo", "Saída");
             cmd.Parameters.AddWithValue("@movimento", "Gasto");

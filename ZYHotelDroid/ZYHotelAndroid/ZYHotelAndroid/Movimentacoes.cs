@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MySql.Data.MySqlClient;
 
 namespace ZYHotelAndroid
 {
@@ -57,10 +58,10 @@ namespace ZYHotelAndroid
         {
             con.AbreConexao();
 
-            SqlCommand cmdVerificar;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar;
+            MySqlDataReader reader;
 
-            cmdVerificar = new SqlCommand("SELECT * FROM movimentacoes WHERE data = @data", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT * FROM movimentacoes WHERE data = @data", con.conex);
             cmdVerificar.Parameters.AddWithValue("@data", Convert.ToDateTime(dataCalendar));
 
             reader = cmdVerificar.ExecuteReader();
@@ -90,12 +91,12 @@ namespace ZYHotelAndroid
 
         private void TotalEntradas()
         {
-            SqlCommand cmdVerificar;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar;
+            MySqlDataReader reader;
 
             con.AbreConexao();
 
-            cmdVerificar = new SqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = @data and tipo = @tipo", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = @data and tipo = @tipo", con.conex);
             cmdVerificar.Parameters.AddWithValue("@tipo", "Entrada");
             cmdVerificar.Parameters.AddWithValue("@data", Convert.ToDateTime(dataCalendar));
 
@@ -118,12 +119,12 @@ namespace ZYHotelAndroid
 
         private void TotalSaidas()
         {
-            SqlCommand cmdVerificar;
-            SqlDataReader reader;
+            MySqlCommand cmdVerificar;
+            MySqlDataReader reader;
 
             con.AbreConexao();
 
-            cmdVerificar = new SqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = @data and tipo = @tipo", con.conex);
+            cmdVerificar = new MySqlCommand("SELECT id, sum(valor) as valor_total FROM movimentacoes WHERE data = @data and tipo = @tipo", con.conex);
             cmdVerificar.Parameters.AddWithValue("@tipo", "Saída");
             cmdVerificar.Parameters.AddWithValue("@data", Convert.ToDateTime(dataCalendar));
 

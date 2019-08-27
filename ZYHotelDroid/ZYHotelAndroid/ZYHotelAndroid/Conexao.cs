@@ -10,23 +10,23 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MySql.Data.MySqlClient;
 
 namespace ZYHotelAndroid
 {
     public class Conexao
     {
-        //public string conec = "SERVER=mysql465.umbler.com; DATABASE=hotel_sistema2; UID=hugohotel; PWD=sistemahotelhugo; PORT=41890;";
-        //public MySqlConnection con = null;
+        public string conn = "SERVER=localhost; DATABASE=id10683328_zysistema_hotel; UID=id10683328_jonatazunnay; PWD=482356; PORT=3306;";
+        public MySqlConnection conex = null;
 
-        public string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ZYHotel; user id=sa; password=123456;MultipleActiveResultSets=true";
-
-        public SqlConnection conex = null;
+        //public string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ZYHotel; user id=sa; password=123456;MultipleActiveResultSets=true";
+        //public SqlConnection conex = null;
 
         public void AbreConexao()
         {
             try
             {
-                conex = new SqlConnection(conn);
+                conex = new MySqlConnection(conn);
                 conex.Open();
                 //Toast.MakeText(Application.Context, "Conectado no SQL Server", ToastLength.Long).Show();
             }
@@ -40,7 +40,7 @@ namespace ZYHotelAndroid
         {
             try
             {
-                conex = new SqlConnection(conn);
+                conex = new MySqlConnection(conn);
                 conex.Close();
             }
             catch (Exception e)
