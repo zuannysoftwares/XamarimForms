@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHotel.Android", "ZYHotel\ZYHotel.Android\ZYHotel.Android.csproj", "{54D9A38C-56EB-4EE3-B2D1-8604A7DAE97B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHotel", "ZYHotel\ZYHotel\ZYHotel.csproj", "{4D3566CA-E3F0-4047-9220-D12B8553D222}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54D9A38C-56EB-4EE3-B2D1-8604A7DAE97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D9A38C-56EB-4EE3-B2D1-8604A7DAE97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D9A38C-56EB-4EE3-B2D1-8604A7DAE97B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{54D9A38C-56EB-4EE3-B2D1-8604A7DAE97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D9A38C-56EB-4EE3-B2D1-8604A7DAE97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D9A38C-56EB-4EE3-B2D1-8604A7DAE97B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4D3566CA-E3F0-4047-9220-D12B8553D222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3566CA-E3F0-4047-9220-D12B8553D222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3566CA-E3F0-4047-9220-D12B8553D222}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4D3566CA-E3F0-4047-9220-D12B8553D222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3566CA-E3F0-4047-9220-D12B8553D222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3566CA-E3F0-4047-9220-D12B8553D222}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BA9672E-A6C6-450D-B778-F393408500B1}
+	EndGlobalSection
+EndGlobal

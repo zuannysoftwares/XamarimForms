@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ZYHotel"
+             x:Class="ZYHotel.MainPage">
+
+    <StackLayout BackgroundColor="#D6D7D7" Orientation="Vertical">
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" BackgroundColor="#F5F5F5" HeightRequest="25" WidthRequest="25">
+            
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,190 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="51.5dp"
+        android:id="@+id/layoutUsuario"
+        android:background="@color/switch_thumb_normal_material_light" >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout2">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="51.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imgUsuario" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout3"
+                android:gravity="right"
+                android:layout_marginRight="20px">
+                <TextView
+                    android:text="Usuário:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtUsuario"
+                    android:layout_marginTop="10px"
+                    android:textSize="6pt" />
+                <TextView
+                    android:text="Cargo:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtCargo"
+                    android:layout_marginTop="5px"
+                    android:textSize="6pt" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+     <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout5" >
+   
+    
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="150.0dp"
+            android:id="@+id/linearLayout1"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="80px">
+            <ImageButton
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="155.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imgMoviment"
+                android:scaleType="fitXY"
+                android:backgroundTint="@android:color/transparent" />
+            <ImageButton
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="155.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imgGastos"
+                android:scaleType="fitXY"
+                android:backgroundTint="@android:color/transparent" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="150.0dp"
+            android:id="@+id/linearLayout1"
+            android:gravity="center_horizontal">
+            <ImageButton
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="155.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imgReservas"
+                android:scaleType="fitXY"
+                android:backgroundTint="@android:color/transparent" />
+            <ImageButton
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="155.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imgCheckIn"
+                android:scaleType="fitXY"
+                android:backgroundTint="@android:color/transparent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+ </ScrollView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutUsuario"
+        android:background="@android:color/transparent"
+        android:gravity="bottom">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="65.0dp"
+            android:id="@+id/layoutRodape"
+            android:background="@color/switch_thumb_normal_material_light"
+            android:layout_marginTop="0.0dp">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="59.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imgMov" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout4"
+                android:gravity="center_vertical">
+                <TextView
+                    android:text="Usuário:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtEntrada"
+                    android:textSize="6pt"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="-6px" />
+                <TextView
+                    android:text="Usuário:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtSaida"
+                    android:textSize="6pt"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="6px" />
+            </LinearLayout>
+            <TextView
+                android:text="Usuário:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txtTotal"
+                android:textSize="6pt"
+                android:textColor="@android:color/holo_red_dark"
+                android:gravity="center_vertical|right"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="15px" />
+        </LinearLayout>
+
+     </LinearLayout>   
+</LinearLayout>
