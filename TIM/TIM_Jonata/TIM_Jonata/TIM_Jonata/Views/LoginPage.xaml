@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TIM_Jonata.MainPage"
+             xmlns:local="clr-namespace:TIM_Jonata.Views.Custom"
+             BackgroundColor="#013ADF">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Margin="40,0,40,0">
+            <Image Source="ImagemTIM.jpg"
+               HeightRequest="100"
+               HorizontalOptions="Center"
+               Margin="0,95,0,20"/>
+
+            <local:EntryField x:Name="usuario" 
+                              TextColor="White"
+                              Placeholder="Login" 
+                              PlaceholderColor="White"
+                              Margin="16,20,16,0"/>
+
+
+            <local:EntryField x:Name="senha"
+                              IsPassword="True"
+                              TextColor="White"
+                              Placeholder="Senha" 
+                              PlaceholderColor="White"
+                              Margin="16,24,16,0"/>
+
+            <Grid Margin="0,20,0,16">
+                <Button Text="Entrar" Command="{Binding LogarCommand}" />
+            </Grid>
+
+            <Label Text="Esqueci minha senha"
+                       TextColor="White"
+                       FontSize="15"
+                       Margin="0,14,0,20"/>
+            <!--<Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SenhaCommannd}" />
+            </Label.GestureRecognizers>-->
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

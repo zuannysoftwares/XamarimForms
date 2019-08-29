@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TesteTIM.Views.HomePage">
+    <StackLayout>
+        <StackLayout BackgroundColor="#013ADF" HeightRequest="190">
+            <Label Text="Olá usuário!" FontSize="Medium" Margin="0,16,0,20" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+
+            <Button Text="Novo Lead" Margin="20,0,20,0" BackgroundColor="WhiteSmoke" Command="{Binding NovoLeadCommand}" />
+            <Button Text="Simulador" Margin="20,0,20,0" Command="{Binding SimuladorCommand}" />
+
+        </StackLayout>
+        <StackLayout BackgroundColor="White">
+            <ScrollView>
+                <Frame IsClippedToBounds="True"  
+                       HasShadow="True"  
+                       Padding="0"  
+                       BackgroundColor="White" >
+                    <Frame.OutlineColor>
+                        <OnPlatform x:TypeArguments="Color"  
+                                    Android="Gray"  
+                                    iOS="Gray"/>
+                    </Frame.OutlineColor>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness"  
+                                    Android="10"   
+                                    iOS="10"/>
+                    </Frame.Margin>
+                    <StackLayout Orientation="Horizontal">
+                        <BoxView Color="{Binding HasVote}" WidthRequest="6"/>
+                        <Grid VerticalOptions="CenterAndExpand"  
+                              Padding="0"  
+                              HorizontalOptions="FillAndExpand"  
+                              BackgroundColor="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label FontAttributes="Bold"  
+                                   Grid.Row="0"  
+                                   HorizontalTextAlignment="Start"  
+                                   VerticalTextAlignment="Center"  
+                                   FontSize="16"  
+                                   Text="{Binding Nome, Mode = TwoWay}">
+                                <Label.LineBreakMode>
+                                    <OnPlatform x:TypeArguments="LineBreakMode"  
+                                                Android="NoWrap"   
+                                                iOS="TailTruncation"/>
+                                </Label.LineBreakMode>
+                            </Label>
+                            <BoxView Grid.Row="1" Color="Gray"  
+                                     HorizontalOptions="FillAndExpand"  
+                                     HeightRequest="1"/>
+                            <Grid Grid.Row="2" BackgroundColor="Transparent" Padding="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0"  
+                                       Grid.Column="0"  
+                                       Text="User Age"/>
+                                <Label Grid.Row="0"  
+                                       Grid.Column="1"  
+                                       Text="{Binding Quantidade, Mode = TwoWay}"/>
+                            </Grid>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

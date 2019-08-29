@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TesteTIM.App">
+    <Application.Resources>
+        <!-- Colors -->
+        <Color x:Key="Primary">#314c7c</Color>
+        <Color x:Key="PrimaryDark">#283860</Color>
+        <Color x:Key="Accent">#314c7c</Color>
+        <Color x:Key="ColorCyanReturn">#a8a8a8</Color>
+
+        <!-- Fonts -->
+        <OnPlatform x:Key="LatoRegular"
+                    x:TypeArguments="x:String"
+                    iOS="Lato-Regular"
+                    Android="Lato-Regular.ttf#Lato-Regular">
+        </OnPlatform>
+
+        <OnPlatform x:Key="LatoBold"
+                    x:TypeArguments="x:String"
+                    iOS="Lato-Bold"
+                    Android="Lato-Bold.ttf#Lato-Bold">
+        </OnPlatform>
+
+        <OnPlatform x:Key="LatoBlack"
+                    x:TypeArguments="x:String"
+                    iOS="Lato-Black"
+                    Android="Lato-Black.ttf#Lato-Black">
+        </OnPlatform>
+
+        <OnPlatform x:Key="MontserratRegular"
+                    x:TypeArguments="x:String"
+                    iOS="Montserrat-Regular"
+                    Android="Montserrat-Regular.ttf#Montserrat-Regular">
+        </OnPlatform>
+
+        <OnPlatform x:Key="MontserratBold"
+                    x:TypeArguments="x:String"
+                    iOS="Montserrat-Bold"
+                    Android="Montserrat-Bold.ttf#Montserrat-Bold">
+        </OnPlatform>
+
+        <OnPlatform x:Key="MontserratSemiBold"
+                    x:TypeArguments="x:String"
+                    iOS="Montserrat-SemiBold"
+                    Android="Montserrat-SemiBold.ttf#Montserrat-SemiBold">
+        </OnPlatform>
+
+        <OnPlatform x:Key="MontserratMedium"
+                    x:TypeArguments="x:String"
+                    iOS="Montserrat-Medium"
+                    Android="Montserrat-Medium.ttf#Montserrat-Medium">
+        </OnPlatform>
+
+        <OnPlatform x:Key="MontserratBlack"
+                    x:TypeArguments="x:String"
+                    iOS="Montserrat-Black"
+                    Android="Montserrat-Black.ttf#Montserrat-Black">
+        </OnPlatform>
+
+        <!-- Fonts Size -->
+        <OnPlatform x:Key="MiniSize"
+                    x:TypeArguments="x:Double"
+                    iOS="10"
+                    Android="10" />
+
+        <OnPlatform x:Key="LittleSize"
+                    x:TypeArguments="x:Double"
+                    iOS="12"
+                    Android="12" />
+
+        <OnPlatform x:Key="MidMediumSize"
+                    x:TypeArguments="x:Double"
+                    iOS="14"
+                    Android="14" />
+
+        <OnPlatform x:Key="MediumSize"
+                    x:TypeArguments="x:Double"
+                    iOS="14"
+                    Android="14" />
+
+        <OnPlatform x:Key="LargeSize"
+                    x:TypeArguments="x:Double"
+                    iOS="18"
+                    Android="18" />
+
+        <OnPlatform x:Key="LargerSize"
+                    x:TypeArguments="x:Double"
+                    iOS="20"
+                    Android="20" />
+
+        <OnPlatform x:Key="BigSize"
+                    x:TypeArguments="x:Double"
+                    iOS="24"
+                    Android="24" />
+
+        <OnPlatform x:Key="ExtraBigSize"
+                    x:TypeArguments="x:Double"
+                    iOS="32"
+                    Android="32" />
+
+        <OnPlatform x:Key="HugeSize"
+                    x:TypeArguments="x:Double"
+                    iOS="48"
+                    Android="48" />
+
+        <Style TargetType="Frame">
+            <Setter Property="BorderColor"
+                    Value="#dfdfe1" />
+            <Setter Property="CornerRadius"
+                    Value="10" />
+            <Setter Property="HasShadow"
+                    Value="True" />
+            <Setter Property="Padding"
+                    Value="4" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="CornerRadius"
+                    Value="45" />
+            <Setter Property="BackgroundColor"
+                    Value="#FFBF00" />
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+        </Style>
+    </Application.Resources>
+</Application>
