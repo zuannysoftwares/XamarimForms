@@ -3,239 +3,260 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:TesteTIM;assembly=TesteTIM"
              x:Class="TesteTIM.MainPage">
+
+    
+    
     <ScrollView>
-        <controls:TabView x:Name="TabView" HeaderBackgroundColor="WhiteSmoke" Margin="0,0,0,-200">
-            <controls:TabItem HeaderText="HOME"
-                              HeaderTextColor="#01A9DB">
-                <StackLayout>
-                    <StackLayout BackgroundColor="#013ADF"
-                                 HeightRequest="165">
-                        <Label Text="Olá usuário!"
-                               FontSize="Medium"
-                               Margin="0,12,0,20"
-                               HorizontalOptions="CenterAndExpand"
-                               TextColor="WhiteSmoke" />
+        <StackLayout>
+            <StackLayout BackgroundColor="#013ADF"
+                         HeightRequest="165">
+                <Label Text="Olá usuário!"
+                       FontSize="Medium"
+                       Margin="0,12,0,20"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="WhiteSmoke" />
 
-                        <Button Text="Novo Lead"
-                                Margin="25,-10,25,0"
-                                BackgroundColor="WhiteSmoke"
-                                Command="{Binding NovoLeadCommand}" />
-                        <Button Text="Simulador"
-                                Margin="25,-2,25,0"
-                                Command="{Binding SimuladorCommand}" />
+                <Button Text="Novo Lead"
+                        Margin="25,-10,25,0"
+                        BackgroundColor="WhiteSmoke"
+                        Command="{Binding NovoLeadCommand}" />
+                <Button Text="Simulador"
+                        Margin="25,-2,25,0"
+                        Command="{Binding SimuladorCommand}" />
+            </StackLayout>
+
+            <StackLayout>
+                <Frame IsClippedToBounds="True"
+                       HasShadow="True"
+                       Padding="0"
+                       BackgroundColor="White">
+                    <Frame.OutlineColor>
+                        <OnPlatform x:TypeArguments="Color"
+                                    Android="Gray"
+                                    iOS="Gray" />
+                    </Frame.OutlineColor>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    Android="10"
+                                    iOS="10" />
+                    </Frame.Margin>
+                    <StackLayout Orientation="Horizontal">
+                        <BoxView Color="#01A9DB"
+                                 WidthRequest="6" />
+                        <Grid VerticalOptions="CenterAndExpand"
+                              Padding="0"
+                              HorizontalOptions="FillAndExpand"
+                              BackgroundColor="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label FontAttributes="Bold"
+                                   Grid.Row="0"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   Margin="12,10,0,0"
+                                   FontSize="20"
+                                   TextColor="#01A9DB"
+                                   Text="LEADS">
+                            </Label>
+
+                            <Grid Grid.Row="2"
+                                  BackgroundColor="Transparent"
+                                  Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontSize="36"
+                                       Margin="18,-18,0,0"
+                                       Text="22" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Margin="75,-20,0,0"
+                                       Text="Ativos" />
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="2"
+                                       HorizontalTextAlignment="End"
+                                       Margin="0,-20,20,0"
+                                       Text="Inativos" />
+                            </Grid>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout>
+                <Frame IsClippedToBounds="True"
+                       HasShadow="True"
+                       Padding="0"
+                       BackgroundColor="White">
+                    <Frame.OutlineColor>
+                        <OnPlatform x:TypeArguments="Color"
+                                    Android="Gray"
+                                    iOS="Gray" />
+                    </Frame.OutlineColor>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    Android="10"
+                                    iOS="10" />
+                    </Frame.Margin>
+                    <StackLayout Orientation="Horizontal">
+                        <BoxView Color="#01A9DB"
+                                 WidthRequest="6" />
+                        <Grid VerticalOptions="CenterAndExpand"
+                              Padding="0"
+                              HorizontalOptions="FillAndExpand"
+                              BackgroundColor="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label FontAttributes="Bold"
+                                   Grid.Row="0"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   Margin="12,10,0,0"
+                                   FontSize="20"
+                                   TextColor="#01A9DB"
+                                   Text="PROPOSTAS">
+                            </Label>
+
+                            <Grid Grid.Row="2"
+                                  BackgroundColor="Transparent"
+                                  Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontSize="36"
+                                       Margin="18,-18,0,0"
+                                       Text="22" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Margin="75,-20,0,0"
+                                       Text="Ativos" />
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="2"
+                                       HorizontalTextAlignment="End"
+                                       Margin="0,-20,20,0"
+                                       Text="Inativos" />
+                            </Grid>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout>
+                <Frame IsClippedToBounds="True"
+                       HasShadow="True"
+                       Padding="0"
+                       BackgroundColor="White">
+                    <Frame.OutlineColor>
+                        <OnPlatform x:TypeArguments="Color"
+                                    Android="Gray"
+                                    iOS="Gray" />
+                    </Frame.OutlineColor>
+                    <Frame.Margin>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    Android="10"
+                                    iOS="10" />
+                    </Frame.Margin>
+                    <StackLayout Orientation="Horizontal">
+                        <BoxView Color="#01A9DB"
+                                 WidthRequest="6" />
+                        <Grid VerticalOptions="CenterAndExpand"
+                              Padding="0"
+                              HorizontalOptions="FillAndExpand"
+                              BackgroundColor="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label FontAttributes="Bold"
+                                   Grid.Row="0"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   Margin="12,10,0,0"
+                                   FontSize="20"
+                                   TextColor="#01A9DB"
+                                   Text="CONTRATOS">
+                            </Label>
+
+                            <Grid Grid.Row="2"
+                                  BackgroundColor="Transparent"
+                                  Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       FontSize="36"
+                                       Margin="25,-18,0,0"
+                                       Text="22" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Margin="75,-20,0,0"
+                                       Text="Ativos" />
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="2"
+                                       HorizontalTextAlignment="End"
+                                       Margin="0,-20,20,0"
+                                       Text="Inativos" />
+                            </Grid>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Grid ColumnSpacing="0" Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <ImageButton Source="logo.png"
+                                     WidthRequest="55"
+                                     HeightRequest="55"
+                                     BackgroundColor="#01A9DB"
+                                     Clicked="MainPageCommand"/>
                     </StackLayout>
 
-                    <StackLayout>
-                        <Frame IsClippedToBounds="True"
-                               HasShadow="True"
-                               Padding="0"
-                               BackgroundColor="White">
-                            <Frame.OutlineColor>
-                                <OnPlatform x:TypeArguments="Color"
-                                            Android="Gray"
-                                            iOS="Gray" />
-                            </Frame.OutlineColor>
-                            <Frame.Margin>
-                                <OnPlatform x:TypeArguments="Thickness"
-                                            Android="10"
-                                            iOS="10" />
-                            </Frame.Margin>
-                            <StackLayout Orientation="Horizontal">
-                                <BoxView Color="#01A9DB"
-                                         WidthRequest="6" />
-                                <Grid VerticalOptions="CenterAndExpand"
-                                      Padding="0"
-                                      HorizontalOptions="FillAndExpand"
-                                      BackgroundColor="Transparent">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Label FontAttributes="Bold"
-                                           Grid.Row="0"
-                                           HorizontalTextAlignment="Start"
-                                           VerticalTextAlignment="Center"
-                                           Margin="12,10,0,0"
-                                           FontSize="20"
-                                           TextColor="#01A9DB"
-                                           Text="LEADS">
-                                    </Label>
-
-                                    <Grid Grid.Row="2"
-                                          BackgroundColor="Transparent"
-                                          Padding="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Grid.Row="0"
-                                               Grid.Column="0"
-                                               FontSize="36"
-                                               Margin="18,-18,0,0"
-                                               Text="22" />
-                                        <Label Grid.Row="1"
-                                               Grid.Column="1"
-                                               Margin="75,-20,0,0"
-                                               Text="Ativos" />
-
-                                        <Label Grid.Row="1"
-                                               Grid.Column="2"
-                                               HorizontalTextAlignment="End"
-                                               Margin="0,-20,20,0"
-                                               Text="Inativos" />
-                                    </Grid>
-                                </Grid>
-                            </StackLayout>
-                        </Frame>
+                    <StackLayout
+                                 Grid.Row="0"
+                                 Grid.Column="1">
+                        <ImageButton Source="reservas64.png"
+                                     WidthRequest="55"
+                                     HeightRequest="55"
+                                     BackgroundColor="Transparent"
+                                     Clicked="TarefasCommand"/>
                     </StackLayout>
 
-                    <StackLayout>
-                        <Frame IsClippedToBounds="True"
-                               HasShadow="True"
-                               Padding="0"
-                               BackgroundColor="White">
-                            <Frame.OutlineColor>
-                                <OnPlatform x:TypeArguments="Color"
-                                            Android="Gray"
-                                            iOS="Gray" />
-                            </Frame.OutlineColor>
-                            <Frame.Margin>
-                                <OnPlatform x:TypeArguments="Thickness"
-                                            Android="10"
-                                            iOS="10" />
-                            </Frame.Margin>
-                            <StackLayout Orientation="Horizontal">
-                                <BoxView Color="#01A9DB"
-                                         WidthRequest="6" />
-                                <Grid VerticalOptions="CenterAndExpand"
-                                      Padding="0"
-                                      HorizontalOptions="FillAndExpand"
-                                      BackgroundColor="Transparent">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Label FontAttributes="Bold"
-                                           Grid.Row="0"
-                                           HorizontalTextAlignment="Start"
-                                           VerticalTextAlignment="Center"
-                                           Margin="12,10,0,0"
-                                           FontSize="20"
-                                           TextColor="#01A9DB"
-                                           Text="PROPOSTAS">
-                                    </Label>
-
-                                    <Grid Grid.Row="2"
-                                          BackgroundColor="Transparent"
-                                          Padding="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Grid.Row="0"
-                                               Grid.Column="0"
-                                               FontSize="36"
-                                               Margin="18,-18,0,0"
-                                               Text="22" />
-                                        <Label Grid.Row="1"
-                                               Grid.Column="1"
-                                               Margin="75,-20,0,0"
-                                               Text="Ativos" />
-
-                                        <Label Grid.Row="1"
-                                               Grid.Column="2"
-                                               HorizontalTextAlignment="End"
-                                               Margin="0,-20,20,0"
-                                               Text="Inativos" />
-                                    </Grid>
-                                </Grid>
-                            </StackLayout>
-                        </Frame>
+                    <StackLayout 
+                                 Grid.Row="0"
+                                 Grid.Column="2">
+                        <ImageButton Source="users.png"
+                                     WidthRequest="55"
+                                     HeightRequest="55"
+                                     BackgroundColor="Transparent"
+                                     Clicked="PerfilCommand"/>
                     </StackLayout>
-
-                    <StackLayout>
-                        <Frame IsClippedToBounds="True"
-                               HasShadow="True"
-                               Padding="0"
-                               BackgroundColor="White">
-                            <Frame.OutlineColor>
-                                <OnPlatform x:TypeArguments="Color"
-                                            Android="Gray"
-                                            iOS="Gray" />
-                            </Frame.OutlineColor>
-                            <Frame.Margin>
-                                <OnPlatform x:TypeArguments="Thickness"
-                                            Android="10"
-                                            iOS="10" />
-                            </Frame.Margin>
-                            <StackLayout Orientation="Horizontal">
-                                <BoxView Color="#01A9DB"
-                                         WidthRequest="6" />
-                                <Grid VerticalOptions="CenterAndExpand"
-                                      Padding="0"
-                                      HorizontalOptions="FillAndExpand"
-                                      BackgroundColor="Transparent">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Label FontAttributes="Bold"
-                                           Grid.Row="0"
-                                           HorizontalTextAlignment="Start"
-                                           VerticalTextAlignment="Center"
-                                           Margin="12,10,0,0"
-                                           FontSize="20"
-                                           TextColor="#01A9DB"
-                                           Text="CONTRATOS">
-                                    </Label>
-
-                                    <Grid Grid.Row="2"
-                                          BackgroundColor="Transparent"
-                                          Padding="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Grid.Row="0"
-                                               Grid.Column="0"
-                                               FontSize="36"
-                                               Margin="25,-18,0,0"
-                                               Text="22" />
-                                        <Label Grid.Row="1"
-                                               Grid.Column="1"
-                                               Margin="75,-20,0,0"
-                                               Text="Ativos" />
-
-                                        <Label Grid.Row="1"
-                                               Grid.Column="2"
-                                               HorizontalTextAlignment="End"
-                                               Margin="0,-20,20,0"
-                                               Text="Inativos" />
-                                    </Grid>
-                                </Grid>
-                            </StackLayout>
-                        </Frame>
-                    </StackLayout>
-
-                </StackLayout>
-            </controls:TabItem>
-
-            <controls:TabItem HeaderText="TAREFAS"
-                              HeaderTextColor="#01A9DB">
-                <StackLayout>
-                    <Label Text="ESTA É A ABA QUE ESTARÃO AS TAREFAS DO DEALER" HorizontalTextAlignment="Center"/>
-                </StackLayout>
-            </controls:TabItem>
-
-            <controls:TabItem HeaderText="PERFIL"
-                              HeaderTextColor="#01A9DB">
-                <StackLayout>
-                    <Label Text="ESTA ABA SERÁ POPULADA COM O PERFIL DO DEALER LOGADO" />
-                </StackLayout>
-            </controls:TabItem>
-        </controls:TabView>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

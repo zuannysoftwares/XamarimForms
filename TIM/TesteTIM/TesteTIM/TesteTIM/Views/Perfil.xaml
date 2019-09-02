@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TesteTIM.Views.Perfil">
+    <NavigationPage.TitleView>
+        <Label Text="Perfil" Margin="0,0,35,0" HorizontalTextAlignment="Center" TextColor="WhiteSmoke" FontSize="20"/>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout>
+            <StackLayout>
+                <Label HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"
+                       Text="AQUI SERÃO LISTADAS AS INFOMAÇÕES DE PERFIL DO DEALER LOGADO" />
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Grid ColumnSpacing="0"
+                      Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <ImageButton Source="logo.png"
+                                     WidthRequest="55"
+                                     HeightRequest="55"
+                                     BackgroundColor="Transparent"
+                                     Clicked="MainPageCommand"/>
+                    </StackLayout>
+
+                    <StackLayout
+                                 Grid.Row="0"
+                                 Grid.Column="1">
+                        <ImageButton Source="reservas64.png"
+                                     WidthRequest="55"
+                                     HeightRequest="55"
+                                     BackgroundColor="Transparent"
+                                     Clicked="TarefasCommand"/>
+                    </StackLayout>
+
+                    <StackLayout 
+                                 Grid.Row="0"
+                                 Grid.Column="2">
+                        <ImageButton Source="users.png"
+                                     WidthRequest="55"
+                                     HeightRequest="55"
+                                     BackgroundColor="#01A9DB"
+                                     />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
