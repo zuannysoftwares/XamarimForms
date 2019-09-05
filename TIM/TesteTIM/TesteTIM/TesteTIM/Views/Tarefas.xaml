@@ -11,7 +11,7 @@
     </ContentPage.Resources>
 
 
-    <NavigationPage.TitleView>
+    <!--<NavigationPage.TitleView>
         <StackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -37,13 +37,238 @@
                 </StackLayout>
             </Grid>
         </StackLayout>
-    </NavigationPage.TitleView>
+    </NavigationPage.TitleView>-->
     <ScrollView>
         <StackLayout>
+            <StackLayout BackgroundColor="#0a3b92">
+                <Grid ColumnSpacing="0"
+                      Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0"
+                                 HeightRequest="77">
+                        <Label Text="Tarefas"
+                               Margin="25,30,0,0"
+                               HorizontalOptions="Start"
+                               TextColor="WhiteSmoke"
+                               FontSize="20" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Button Text="X"
+                                TextColor="WhiteSmoke"
+                                Margin="25,16,0,0"
+                                FontSize="25"
+                                Clicked="VoltarCommand"
+                                HorizontalOptions="End" />
+                    </StackLayout>
+
+
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Spacing="0"
+                         BackgroundColor="#e6e8ed"
+                         HeightRequest="40"
+                         Margin="0,-15,0,0"
+                         HorizontalOptions="FillAndExpand">
+                <Label Text="Recentes"
+                       Margin="40,10,0,0"
+                       TextColor="#7f8185" />
+            </StackLayout>
+
             <StackLayout>
-                <Label HorizontalOptions="CenterAndExpand"
-                       HorizontalTextAlignment="Center"
-                       Text="AQUI SERÃO LISTADAS AS TAREFAS DO DEALER" />
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <BoxView Margin="25,12,0,10"
+                                 Color="#e6e8ed" HeightRequest="45" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Margin="17,16,0,0" FontAttributes="Bold" Text="Enviar proposta para o cliente X" />
+                        <Label Margin="17,0,0,0"
+                               FontAttributes="Bold"
+                               Text="25 de Maio - lorem ipsum"
+                               TextColor="#e6e8ed" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <BoxView Color="#d9dadb"
+                     WidthRequest="1"
+                     HeightRequest="1" />
+            
+            <StackLayout>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <BoxView Margin="25,12,0,10"
+                                 Color="#e6e8ed"
+                                 HeightRequest="45" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Margin="17,16,0,0"
+                               FontAttributes="Bold"
+                               Text="Enviar proposta para o cliente X" />
+                        <Label Margin="17,0,0,0"
+                               FontAttributes="Bold"
+                               Text="25 de Maio - lorem ipsum"
+                               TextColor="#e6e8ed" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <BoxView Color="#d9dadb"
+                     WidthRequest="1"
+                     HeightRequest="1" />
+            
+            <StackLayout>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <BoxView Margin="25,12,0,10"
+                                 Color="#e6e8ed"
+                                 HeightRequest="45" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Margin="17,16,0,0"
+                               FontAttributes="Bold"
+                               Text="Enviar proposta para o cliente X" />
+                        <Label Margin="17,0,0,0"
+                               FontAttributes="Bold"
+                               Text="25 de Maio - lorem ipsum"
+                               TextColor="#e6e8ed" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <BoxView Color="#d9dadb"
+                     WidthRequest="1"
+                     HeightRequest="1" />
+
+            <StackLayout Spacing="0"
+                         BackgroundColor="#e6e8ed"
+                         HeightRequest="40"
+                         Margin="0,-15,0,0"
+                         HorizontalOptions="FillAndExpand">
+                <Label Text="Anteriores"
+                       Margin="40,10,0,0"
+                       TextColor="#7f8185" />
+            </StackLayout>
+
+            <StackLayout>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <BoxView Margin="25,12,0,10"
+                                 Color="#e6e8ed"
+                                 HeightRequest="45" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Margin="17,16,0,0"
+                               FontAttributes="Bold"
+                               Text="Enviar proposta para o cliente X" />
+                        <Label Margin="17,0,0,0"
+                               FontAttributes="Bold"
+                               Text="25 de Maio - lorem ipsum"
+                               TextColor="#e6e8ed" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <BoxView Color="#d9dadb"
+                     WidthRequest="1"
+                     HeightRequest="1" />
+
+            <StackLayout>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <BoxView Margin="25,12,0,10"
+                                 Color="#e6e8ed"
+                                 HeightRequest="45" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Margin="17,16,0,0"
+                               FontAttributes="Bold"
+                               Text="Enviar proposta para o cliente X" />
+                        <Label Margin="17,0,0,0"
+                               FontAttributes="Bold"
+                               Text="25 de Maio - lorem ipsum"
+                               TextColor="#e6e8ed" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <BoxView Color="#d9dadb"
+                     WidthRequest="1"
+                     HeightRequest="1" />
+
+            <StackLayout>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <BoxView Margin="25,12,0,10"
+                                 Color="#e6e8ed"
+                                 HeightRequest="45" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1" Margin="0,0,0,30">
+                        <Label Margin="17,16,0,0"
+                               FontAttributes="Bold"
+                               Text="Enviar proposta para o cliente X" />
+                        <Label Margin="17,0,0,0"
+                               FontAttributes="Bold"
+                               Text="25 de Maio - lorem ipsum"
+                               TextColor="#e6e8ed" />
+                    </StackLayout>
+                </Grid>
             </StackLayout>
 
             <StackLayout VerticalOptions="EndAndExpand">
@@ -57,33 +282,32 @@
 
                     <StackLayout Grid.Row="0"
                                  Grid.Column="0">
-                        <ImageButton Source="logo.png"
+                        <ImageButton Source="ic_home_on.png"
                                      WidthRequest="55"
                                      HeightRequest="55"
-                                     BackgroundColor="Transparent"
+                                     BackgroundColor="White"
                                      Clicked="MainPageCommand" />
                     </StackLayout>
 
-                    <StackLayout
-                                 Grid.Row="0"
+                    <StackLayout Grid.Row="0"
                                  Grid.Column="1">
                         <ImageButton Source="reservas64.png"
                                      WidthRequest="55"
                                      HeightRequest="55"
-                                     BackgroundColor="#01A9DB" />
+                                     BackgroundColor="White" />
                     </StackLayout>
 
-                    <StackLayout 
-                                 Grid.Row="0"
+                    <StackLayout Grid.Row="0"
                                  Grid.Column="2">
-                        <ImageButton Source="users.png"
+                        <ImageButton Source="ic_account_circle.png"
                                      WidthRequest="55"
                                      HeightRequest="55"
-                                     BackgroundColor="Transparent"
+                                     BackgroundColor="White"
                                      Clicked="PerfilCommand" />
                     </StackLayout>
                 </Grid>
             </StackLayout>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -15,6 +15,7 @@ namespace TesteTIM.Views
 		public Tarefas ()
 		{
 			InitializeComponent ();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         public void MainPageCommand(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace TesteTIM.Views
         private void VoltarCommand(object sender, EventArgs args)
         {
             Application.Current.MainPage = new NavigationPage(new MainPage());
+
         }
     }
 }

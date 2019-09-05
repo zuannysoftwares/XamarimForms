@@ -2,15 +2,79 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TesteTIM.Views.Perfil">
-    <NavigationPage.TitleView>
-        <Label Text="Perfil" Margin="0,0,35,0" HorizontalTextAlignment="Center" TextColor="WhiteSmoke" FontSize="20"/>
-    </NavigationPage.TitleView>
+
     <ScrollView>
         <StackLayout>
-            <StackLayout>
-                <Label HorizontalOptions="CenterAndExpand"
-                       HorizontalTextAlignment="Center"
-                       Text="AQUI SERÃO LISTADAS AS INFOMAÇÕES DE PERFIL DO DEALER LOGADO" />
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Grid ColumnSpacing="0" Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <ImageButton Source="ic_arrow_back_black"
+                                     BackgroundColor="White"
+                                     HorizontalOptions="Start"
+                                     Margin="20,20,0,0"
+                                     Clicked="VoltarCommand" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Text="Perfil"
+                               Margin="0,20,40,0"
+                               HorizontalTextAlignment="Center"
+                               TextColor="#013ADF"
+                               FontSize="20" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Margin="40,20,40,0">
+                <Entry Placeholder="Nome"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Data Nascimento"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Endereço"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="CEP"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Cidade - UF"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Bairro"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Celular"
+                       Margin="14,10,14,0" />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="-5,20,0,10">
+                <Grid ColumnSpacing="0"
+                      Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <ImageButton Source="ic_arrow_back_black"
+                                     BackgroundColor="White"
+                                     HorizontalOptions="Start"
+                                     Margin="46,20,0,0"
+                                     Clicked="VoltarLoginCommand" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Text="Encerrar sessão"
+                               Margin="-26,20,40,0"
+                               HorizontalTextAlignment="Center"
+                               TextColor="Gray"
+                               FontSize="20" />
+                    </StackLayout>
+                </Grid>
             </StackLayout>
 
             <StackLayout VerticalOptions="EndAndExpand">
@@ -24,31 +88,28 @@
 
                     <StackLayout Grid.Row="0"
                                  Grid.Column="0">
-                        <ImageButton Source="logo.png"
+                        <ImageButton Source="ic_home_on.png"
                                      WidthRequest="55"
                                      HeightRequest="55"
-                                     BackgroundColor="Transparent"
-                                     Clicked="MainPageCommand"/>
+                                     BackgroundColor="White"
+                                     Clicked="MainPageCommand" />
                     </StackLayout>
 
-                    <StackLayout
-                                 Grid.Row="0"
+                    <StackLayout Grid.Row="0"
                                  Grid.Column="1">
                         <ImageButton Source="reservas64.png"
                                      WidthRequest="55"
                                      HeightRequest="55"
-                                     BackgroundColor="Transparent"
-                                     Clicked="TarefasCommand"/>
+                                     BackgroundColor="White"
+                                     Clicked="TarefasCommand" />
                     </StackLayout>
 
-                    <StackLayout 
-                                 Grid.Row="0"
+                    <StackLayout Grid.Row="0"
                                  Grid.Column="2">
-                        <ImageButton Source="users.png"
+                        <ImageButton Source="ic_account_circle.png"
                                      WidthRequest="55"
                                      HeightRequest="55"
-                                     BackgroundColor="#01A9DB"
-                                     />
+                                     BackgroundColor="White" />
                     </StackLayout>
                 </Grid>
             </StackLayout>
