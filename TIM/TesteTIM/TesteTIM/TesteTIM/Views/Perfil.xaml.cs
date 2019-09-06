@@ -34,7 +34,7 @@ namespace TesteTIM.Views
 
         public void VoltarLoginCommand(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new MainPage());
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

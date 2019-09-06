@@ -172,4 +172,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ImagemTIM.jpg" />
+  </ItemGroup>
 </Project>
