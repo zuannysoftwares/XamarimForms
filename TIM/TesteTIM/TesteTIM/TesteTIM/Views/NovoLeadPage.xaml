@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TesteTIM.Views.NovoLeadPage">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout BackgroundColor="#0a3b92">
+                <Grid ColumnSpacing="0"
+                      Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="0">
+                        <ImageButton Source="ic_arrow_back_black"
+                                     BackgroundColor="White"
+                                     HorizontalOptions="Start"
+                                     Margin="20,20,0,10"
+                                     Clicked="VoltarCommand" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1">
+                        <Label Text="Novo lead"
+                               Margin="-30,10,40,0"
+                               HorizontalTextAlignment="Center"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontSize="20" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

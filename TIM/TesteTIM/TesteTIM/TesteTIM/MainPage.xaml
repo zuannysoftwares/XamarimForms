@@ -19,7 +19,7 @@
                 <Button Text="Novo Lead"
                         Margin="25,-10,25,0"
                         BackgroundColor="WhiteSmoke"
-                        Command="{Binding NovoLeadCommand}" />
+                        Clicked="NovoLeadCommand" />
                 <Button Text="Simulador"
                         Margin="25,-2,25,0"
                         Command="{Binding SimuladorCommand}" />

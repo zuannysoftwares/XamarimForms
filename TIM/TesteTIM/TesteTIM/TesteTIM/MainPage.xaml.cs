@@ -32,5 +32,10 @@ namespace TesteTIM
         {
             Navigation.PushAsync(new Perfil());
         }
+
+        private void NovoLeadCommand(object sender, EventArgs args)
+        {
+            Application.Current.MainPage = new NavigationPage(new NovoLeadPage());
+        }
     }
 }
