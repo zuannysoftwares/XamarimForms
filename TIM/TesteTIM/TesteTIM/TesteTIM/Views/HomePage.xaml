@@ -7,7 +7,7 @@
             <Label Text="Olá usuário!" FontSize="Medium" Margin="0,16,0,20" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
 
             <Button Text="Novo Lead" Margin="20,0,20,0" BackgroundColor="WhiteSmoke" Command="{Binding NovoLeadCommand}" />
-            <Button Text="Simulador" Margin="20,0,20,0" Command="{Binding SimuladorCommand}" />
+            <Button Text="Simulador" Margin="20,10,20,0" Command="{Binding SimuladorCommand}" />
 
         </StackLayout>
         <StackLayout BackgroundColor="White">

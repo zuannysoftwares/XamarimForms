@@ -17,14 +17,14 @@
                         <ImageButton Source="ic_arrow_back_black"
                                      BackgroundColor="White"
                                      HorizontalOptions="Start"
-                                     Margin="20,20,0,10"
+                                     Margin="20,20,0,0"
                                      Clicked="VoltarCommand" />
                     </StackLayout>
 
                     <StackLayout Grid.Row="0"
                                  Grid.Column="1">
                         <Label Text="Novo lead"
-                               Margin="-30,10,40,0"
+                               Margin="-160,10,40,0"
                                HorizontalTextAlignment="Center"
                                TextColor="White"
                                FontAttributes="Bold"
@@ -32,6 +32,28 @@
                     </StackLayout>
                 </Grid>
             </StackLayout>
+
+            <StackLayout Margin="40,20,40,0">
+                <Entry Placeholder="Razão social"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="CNPJ/CPF"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Estado"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Município"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Nome completo"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Cargo"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="E-mail"
+                       Margin="14,10,14,0" />
+                <Entry Placeholder="Telefone"
+                       Margin="14,10,14,0" />
+            </StackLayout>
+
+            <Button Text="CADASTRAR"
+                    Margin="45,50,45,35" />
 
         </StackLayout>
     </ScrollView>

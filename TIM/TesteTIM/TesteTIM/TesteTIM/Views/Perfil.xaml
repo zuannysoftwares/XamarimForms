@@ -8,7 +8,7 @@
             <StackLayout HorizontalOptions="FillAndExpand">
                 <Grid ColumnSpacing="0" Padding="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
